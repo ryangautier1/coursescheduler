@@ -29,8 +29,13 @@ const userSchema = new Schema({
     },
     amountOwed : {
       type: Number
-    }
-
+    },
+    planners : [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "Planner"
+        }
+    ]
 });
 
 userSchema.pre("save", async function save(next) {  
