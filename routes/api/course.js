@@ -10,7 +10,6 @@ router
 // Match with /api/course/:id
 router
     .route("/:id")
-    .get(courseController.findById)
-    .delete(courseController.remove);
+    .get(courseController.findById);
 
 module.exports = router;
