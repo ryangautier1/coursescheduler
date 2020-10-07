@@ -6,7 +6,7 @@ function App() {
   return (
     <div>
       <Navbar />
-      <Home />
+      <Home name={"Joe Smith"}/>
     </div>
   );
 }

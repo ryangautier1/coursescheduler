@@ -5,3 +5,16 @@
   color: #858789;
   margin-top: 8rem;
 }
+
+.my-select {
+  border-radius: .25rem 0rem 0rem .25rem;
+  border: 2px solid #59b2fc !important;
+}
+
+.my-select:focus {
+  box-shadow: none;
+}
+
+input {
+  border: 2px solid #59b2fc !important;
+}
