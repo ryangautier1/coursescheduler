@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import ClassCard from '../../components/ClassCard';
 import './home.css';
 
 function Home(props) {
@@ -11,7 +12,7 @@ function Home(props) {
       <h5>Hello, {name}</h5>
 
       <form>
-      <div className="input-group mb-2 mr-sm-2 my-4 form-row">
+        <div className="input-group mb-2 mr-sm-2 my-4 form-row">
           <div className="input-group-prepend">
             <div>
               <select className="custom-select my-select" defaultValue={"ACC"}>
@@ -22,10 +23,21 @@ function Home(props) {
               </select>
             </div>
           </div>
-          <input type="text" className="form-control serach-field" placeholder="Search for a class..." />
+          <input type="text" className="form-control my-serach-field" placeholder="Search for a class..." />
           <button type="submit" className="btn btn-primary ml-4 my-search-btn">SEARCH</button>
-      </div>
+        </div>
       </form>
+
+      <h5 className="suggested">Suggested Courses</h5>
+
+      <div className="d-flex flex-wrap justify-content-around">
+        <ClassCard />
+        <ClassCard />
+        <ClassCard />
+        <ClassCard />
+      </div>
+
+
     </div>
   )
 }
