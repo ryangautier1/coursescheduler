@@ -13,7 +13,9 @@ export default function SearchResults() {
         { title: 'status', count: 4 },
         { title: 'day', count: 7 },
         { title: 'instructor', count: 28 }
-    ]
+    ];
+
+    const backLinkData = { text: 'Start a new search', path: '/' };
 
     return (
         <div className='container-fluid'>
@@ -21,9 +23,9 @@ export default function SearchResults() {
                 <div className='col col-sm-2'>
                     <span className='label-small'>filters</span>
                     <div className='filter-items'>
-                        {fakeFilterData.map(filter => <FilterButton title={filter.title} count={filter.count} />)}
+                        {fakeFilterData.map(filter => <FilterButton key={filter.title} title={filter.title} count={filter.count} />)}
                     </div>
-                    <BackLink />
+                    <BackLink text={backLinkData.text} path={backLinkData.path} />
                 </div>
                 <div className='col col-sm-10'>
                     Main
