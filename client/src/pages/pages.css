@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+
+
+
+/* START - Search Results Page */
+
 .label-small {
     font-size: 14px;
     text-transform: uppercase;
@@ -13,4 +18,22 @@
 
 .filter-items {
     margin-top: 10px;
+    margin-bottom: 16px;
 }
+
+a.new-search-link {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: #7f7f7f;
+}
+
+.new-search-link i {
+    color: #2699fb;
+}
+
+/* END - Search Results Page */
+
+
+
+
