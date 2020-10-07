@@ -9,7 +9,7 @@ export default function SearchResults() {
                 <div className='col col-sm-2'>
                     <span className='label-small'>filters</span>
                     <div className='filter-items'>
-                        <FilterButton />
+                        <FilterButton title='school' count={1} />
                     </div>
                 </div>
                 <div className='col col-sm-10'>
