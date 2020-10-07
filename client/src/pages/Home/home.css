@@ -4,17 +4,24 @@
   background-color: #bce0fd;
   color: #858789;
   margin-top: 8rem;
+  box-sizing: border-box;
 }
 
 .my-select {
-  border-radius: .25rem 0rem 0rem .25rem;
+  border-radius: .25rem 0 0 .25rem;
   border: 2px solid #59b2fc !important;
+  height: unset !important;
 }
 
 .my-select:focus {
   box-shadow: none;
 }
 
-input {
+.serach-field {
   border: 2px solid #59b2fc !important;
+  border-radius: 0 .25rem .25rem 0 !important;
+}
+
+.my-search-btn {
+  font-size: 14px;
 }
