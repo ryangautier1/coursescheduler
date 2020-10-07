@@ -27,6 +27,17 @@
     padding-bottom: 0;
 }
 
+.item-data .title,
+.item-data .term,
+.item-data .instructor {
+    text-transform: capitalize;
+}
+
+.item-data .school,
+.item-data .depart {
+    text-transform: uppercase;
+}
+
 .item-note td {
     padding-top: 0;
     font-size: 12px;

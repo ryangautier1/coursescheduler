@@ -17,13 +17,13 @@ export default function ResultItem() {
             </thead>
             <tbody>
                 <tr className='item-data'>
-                    <td><i className='open fas fa-circle' /></td>
-                    <td>Virtual Environment</td>
-                    <td>INF</td>
-                    <td>NA</td>
-                    <td>2019 Fall</td>
-                    <td>John Watson</td>
-                    <td className='d-flex flex-column align-items-center'>
+                    <td className='status'><i className='open fas fa-circle' /></td>
+                    <td className='title'>Virtual Environment</td>
+                    <td className='school'>INF</td>
+                    <td className='depart'>NA</td>
+                    <td className='term'>2019 Fall</td>
+                    <td className='instructor'>John Watson</td>
+                    <td className='time d-flex flex-column align-items-center'>
                         <div className='time-days d-flex'>
                             <span>S</span>
                             <span>M</span>

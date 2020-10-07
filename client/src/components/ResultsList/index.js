@@ -3,6 +3,46 @@ import './resultsList.css';
 import ResultItem from '../ResultItem';
 
 export default function ResultsList() {
+
+    const resultItems = [
+        {
+            status: 'open',
+            title: 'virtual environment',
+            school: 'inf',
+            department: 'na',
+            term: '2019 fall',
+            instructor: 'john watson',
+            time: {
+                days: ['wednesday'],
+                hours: '9:00am-12:00pm'
+            }
+        },
+        {
+            status: 'reserved',
+            title: 'graphic design',
+            school: 'inf',
+            department: 'na',
+            term: '2019 fall',
+            instructor: 'john watson',
+            time: {
+                days: ['monday', 'wednesday'],
+                hours: '2:00pm-5:00pm'
+            }
+        },
+        {
+            status: 'open',
+            title: 'web design',
+            school: 'inf',
+            department: 'na',
+            term: '2019 fall',
+            instructor: 'john watson',
+            time: {
+                days: ['tuesday', 'thursday'],
+                hours: '9:00am-12:00pm'
+            }
+        }
+    ]
+
     return (
         <div className='row'>
             <div className='list-wrapper col'>
@@ -21,7 +61,21 @@ export default function ResultsList() {
                 {/* List of results */}
                 <div className='result-items row'>
                     <div className='col'>
-                        <ResultItem />
+                        {
+                            resultItems.map(item => (
+                                <ResultItem 
+                                    key={item.title}
+                                    status={item.status}
+                                    title={item.title}
+                                    school={item.school}
+                                    depart={item.department}
+                                    term={item.term}
+                                    instructor={item.instructor}
+                                    time={item.time}
+                                />
+                            ))
+                        }
+                        
                     </div>
                 </div>
             </div>
