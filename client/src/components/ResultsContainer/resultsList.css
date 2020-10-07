@@ -10,7 +10,6 @@
 .sort span {
     margin-right: 10px;
     color: #2699fb;
-    font-weight: 500;
 }
 
 .sort ul {
@@ -30,5 +29,4 @@
 .list-count {
     color: #2699fb;
     font-size: 14px;
-    font-weight: 500;
 }

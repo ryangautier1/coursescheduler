@@ -1,9 +1,10 @@
 import React from 'react';
 import './resultsList.css';
 
-export default function ResultsList() {
+export default function ResultsContainer() {
     return (
         <div className='results-wrapper'>
+            {/* Sort by row */}
             <div className='sort-row row'>
                 <div className='col d-flex justify-content-between'>
                     <div className='sort d-flex align-items-end'>
