@@ -3,6 +3,7 @@ import './pages.css';
 import FilterButton from '../components/FilterButton';
 import BackLink from '../components/BackLink';
 import PageTitle from '../components/PageTitle';
+import ResultsList from '../components/ResultsList';
 
 export default function SearchResults() {
 
@@ -30,6 +31,7 @@ export default function SearchResults() {
                 </div>
                 <div className='col col-sm-10'>
                     <PageTitle text='Search Results' />
+                    <ResultsList />
                 </div>
             </div>
         </div>
