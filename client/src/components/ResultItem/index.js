@@ -12,7 +12,7 @@ export default function ResultItem({ status, title, school, depart, term, instru
                     <th scope='col'>Depart.</th>
                     <th scope='col'>Term</th>
                     <th scope='col'>Instructor</th>
-                    <th scope='col'>Time</th>
+                    <th scope='col' className='time-th'>Time</th>
                 </tr>
             </thead>
             <tbody>

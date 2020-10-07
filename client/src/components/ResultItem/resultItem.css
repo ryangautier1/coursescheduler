@@ -38,6 +38,29 @@
     text-transform: uppercase;
 }
 
+.item-data .status {
+    width: 5%;
+    text-align: center;
+}
+
+.item-data .school,
+.item-data .depart {
+    width: 10%;
+}
+
+.item-data .term {
+    width: 15%;
+}
+
+.item-data .title,
+.item-data .instructor {
+    width: 20%;
+}
+
+.time-th {
+    text-align: center;
+}
+
 .item-note td {
     padding-top: 0;
     font-size: 12px;
