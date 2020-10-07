@@ -1,5 +1,6 @@
 import React from 'react';
-import './resultsList.css';
+import './resultsContainer.css';
+import ResultsList from '../ResultsList';
 
 export default function ResultsContainer() {
     return (
@@ -19,6 +20,9 @@ export default function ResultsContainer() {
                         28 Courses Found
                     </div>
                 </div>
+            </div>
+            <div className='row'>
+                <ResultsList />
             </div>
         </div>
     )
