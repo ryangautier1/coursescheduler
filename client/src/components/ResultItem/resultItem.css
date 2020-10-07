@@ -76,6 +76,11 @@
     margin: 0 2px;
 }
 
+.time-days .selected {
+    background-color: #2699fb;
+    color: #fff;
+}
+
 .time-time {
     font-size: 12px
 }

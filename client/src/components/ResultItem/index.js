@@ -1,7 +1,7 @@
 import React from 'react';
 import './resultItem.css';
 
-export default function ResultItem() {
+export default function ResultItem({ status, title, school, depart, term, instructor, time }) {
     return (
         <table className='table item-table'>
             <thead>
@@ -17,23 +17,23 @@ export default function ResultItem() {
             </thead>
             <tbody>
                 <tr className='item-data'>
-                    <td className='status'><i className='open fas fa-circle' /></td>
-                    <td className='title'>Virtual Environment</td>
-                    <td className='school'>INF</td>
-                    <td className='depart'>NA</td>
-                    <td className='term'>2019 Fall</td>
-                    <td className='instructor'>John Watson</td>
+                    <td className='status'><i className={`${status} fas fa-circle`} /></td>
+                    <td className='title'>{title}</td>
+                    <td className='school'>{school}</td>
+                    <td className='depart'>{depart}</td>
+                    <td className='term'>{term}</td>
+                    <td className='instructor'>{instructor}</td>
                     <td className='time d-flex flex-column align-items-center'>
                         <div className='time-days d-flex'>
-                            <span>S</span>
-                            <span>M</span>
-                            <span>T</span>
-                            <span>W</span>
-                            <span>Th</span>
-                            <span>F</span>
-                            <span>S</span>
+                            <span className={time.days.includes('sunday') ? 'selected' : ''}>S</span>
+                            <span className={time.days.includes('monday') ? 'selected' : ''}>M</span>
+                            <span className={time.days.includes('tuesday') ? 'selected' : ''}>T</span>
+                            <span className={time.days.includes('wednesday') ? 'selected' : ''}>W</span>
+                            <span className={time.days.includes('thursday') ? 'selected' : ''}>Th</span>
+                            <span className={time.days.includes('friday') ? 'selected' : ''}>F</span>
+                            <span className={time.days.includes('saturday') ? 'selected' : ''}>S</span>
                         </div>
-                        <div className='time-time'>9:00am-12:00pm</div>
+                        <div className='time-time'>{time.hours}</div>
                     </td>
                 </tr>
                 <tr className='item-note'>
