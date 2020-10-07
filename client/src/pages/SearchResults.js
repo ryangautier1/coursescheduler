@@ -2,6 +2,7 @@ import React from 'react';
 import './pages.css';
 import FilterButton from '../components/FilterButton';
 import BackLink from '../components/BackLink';
+import PageTitle from '../components/PageTitle';
 
 export default function SearchResults() {
 
@@ -28,7 +29,7 @@ export default function SearchResults() {
                     <BackLink text={backLinkData.text} path={backLinkData.path} />
                 </div>
                 <div className='col col-sm-10'>
-                    Main
+                    <PageTitle text='Search Results' />
                 </div>
             </div>
         </div>
