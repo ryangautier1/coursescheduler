@@ -2,4 +2,29 @@
     min-width: 100%;
     font-size: 14px;
     text-transform: capitalize;
+    background-color: #f1f9ff;
+    border: 1px solid #7fc4fd;
+}
+
+.filter-items button i {
+    color: #2699fb;
+}
+
+.filter-sub-items {
+    border: 1px solid #7fc4fd;
+    padding: 10px 10px 10px 20px;
+}
+
+.filter-sub-item {
+    font-size: 14px;
+    color: #2699fb;
+}
+
+.filter-sub-item:not(:last-child) {
+    margin-bottom: 8px;
+}
+
+.filter-sub-item label {
+    width: 100%;
+    cursor: pointer;
 }

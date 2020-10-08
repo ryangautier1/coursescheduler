@@ -1,0 +1,46 @@
+.list-wrapper {
+    background-color: #2699fb;
+    padding: 10px 20px;
+    margin: 10px 1rem;
+}
+
+.status-key {
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.status-key span {
+    margin-right: 20px;
+}
+
+.status-key ul {
+    list-style-type: none;
+    margin: 0;
+}
+
+.status-key ul li {
+    float: left;
+    padding: 0 10px;
+    font-size: 14px;
+}
+
+.status-key i {
+    text-shadow: 0 1px 2px rgb(100, 100, 100);
+}
+
+.status-key .open {
+    color: #57ad7b;
+}
+
+.status-key .reserved {
+    color: #f5f577;
+}
+
+.status-key .closed {
+    color: #d39c65;
+}
+
+.status-key .cancelled {
+    color: #e54f49;
+}
