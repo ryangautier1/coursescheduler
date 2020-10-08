@@ -1,0 +1,32 @@
+.results-wrapper {
+    max-width: 1000px;
+}
+
+.sort {
+    /* background-color: cadetblue; */
+    margin-top: 12px;
+}
+
+.sort span {
+    margin-right: 10px;
+    color: #2699fb;
+}
+
+.sort ul {
+    list-style-type: none;
+    margin: 0;
+}
+
+.sort ul li {
+    float: left;
+    padding: 0 10px;
+    font-size: 14px;
+    color: #7f7f7f;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.list-count {
+    color: #2699fb;
+    font-size: 14px;
+}
