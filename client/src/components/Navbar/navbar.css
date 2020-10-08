@@ -1,0 +1,11 @@
+nav {
+  background: #2699fb;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.mr-16 {
+  margin-right: 3rem;
+}
