@@ -1,9 +1,10 @@
 import React from 'react';
-import './pages.css';
-import FilterButton from '../components/FilterButton';
-import BackLink from '../components/BackLink';
-import PageTitle from '../components/PageTitle';
-import ResultsContainer from '../components/ResultsContainer';
+import '../pages.css';
+import './searchResults.css';
+import FilterButton from '../../components/FilterButton';
+import BackLink from '../../components/BackLink';
+import PageTitle from '../../components/PageTitle';
+import ResultsContainer from '../../components/ResultsContainer';
 
 export default function SearchResults() {
 
