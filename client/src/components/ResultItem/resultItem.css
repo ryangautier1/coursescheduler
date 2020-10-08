@@ -38,6 +38,11 @@
     text-transform: uppercase;
 }
 
+.item-data td {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
 .item-data .status {
     width: 5%;
     text-align: center;

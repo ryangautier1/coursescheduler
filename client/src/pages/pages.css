@@ -9,6 +9,10 @@
 
 /* START - Search Results Page */
 
+.search-results-container {
+    padding: 40px;
+}
+
 .label-small {
     font-size: 14px;
     text-transform: uppercase;
