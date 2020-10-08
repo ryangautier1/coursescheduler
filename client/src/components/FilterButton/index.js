@@ -1,7 +1,7 @@
 import React from 'react';
 import './filterButton.css';
 
-export default function FilterButton({ title, count }) {
+export default function FilterButton({ title, count, items }) {
     return (
         <React.Fragment>
             <button
@@ -14,8 +14,16 @@ export default function FilterButton({ title, count }) {
             >
                 {`${title} (${count})`} <i className="fas fa-angle-down" />
             </button>
-            <div className='collapse' id={`${title}-items`}>
-                <input type='checkbox' className='form-check-input' id={`${title}-item`} />
+            <div className='filter-sub-items collapse' id={`${title}-items`}>
+                {
+                    items.map(item => (
+                        <div className='filter-sub-item form-check' key={item.name}>
+                            <input type='checkbox' className='form-check-input' id={`${title}-${item.name}`} />
+                            <label className='form-check-label' htmlFor={`${title}-${item.name}`}>{`${item.name} (${item.count})`}</label>
+                        </div>
+                    )
+                    )
+                }
             </div>
         </React.Fragment>
     )

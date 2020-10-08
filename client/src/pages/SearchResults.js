@@ -25,7 +25,7 @@ export default function SearchResults() {
                 <div className='col col-sm-2'>
                     <span className='label-small'>filters</span>
                     <div className='filter-items'>
-                        {fakeFilterData.map(filter => <FilterButton key={filter.title} title={filter.title} count={filter.count} />)}
+                        {fakeFilterData.map(filter => <FilterButton key={filter.title} title={filter.title} count={filter.count} items={filter.items} />)}
                     </div>
                     <BackLink text={backLinkData.text} path={backLinkData.path} />
                 </div>
