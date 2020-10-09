@@ -32,7 +32,14 @@ export default function InstructorDetail() {
                     </div>
                 </div>
                 <div className='col-md instructor-info p-4'>
-                    Teaching Style
+                    <span className='name'>Teaching Style</span>
+                    <div className='mt-3'>
+                        <LabelAndValue label='Course Load' value='Medium' />
+                        <LabelAndValue label='Grading' value='Pass/fail allowed' />
+                        <LabelAndValue label='Reading/Writing/Project' value='Medium to heavy' />
+                        <LabelAndValue label='Teaching Preference' value='Being on time' />
+                        <LabelAndValue label='Course Organizing' value='PowerPoint and discussion' />
+                    </div>
                 </div>
             </div>
         </div>
