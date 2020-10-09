@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './pages/Home/index.js';
+import Planner from './pages/Planner';
 import SearchResults from './pages/SearchResults';
 import Navbar from './components/Navbar'
 
@@ -14,6 +15,9 @@ function App() {
         </Route>
         <Route path='/search-results'>
           <SearchResults />
+        </Route>
+        <Route path='/planner'>
+          <Planner />
         </Route>
       </Switch>
     </Router>

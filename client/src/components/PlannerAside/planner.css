@@ -1,0 +1,9 @@
+.planner-side {
+  background: #2699fb;
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 200px;
+  z-index: 0;
+}

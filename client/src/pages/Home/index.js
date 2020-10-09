@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import ClassCard from '../../components/ClassCard';
 import './home.css';
 
@@ -24,7 +25,9 @@ function Home(props) {
             </div>
           </div>
           <input type="text" className="form-control my-serach-field" placeholder="Search for a class..." />
-          <button type="submit" className="btn btn-primary ml-4 my-search-btn">SEARCH</button>
+          <Link to="/search-results">
+            <button className="btn btn-primary ml-4 my-search-btn" >SEARCH</button>
+          </Link>
         </div>
       </form>
 
