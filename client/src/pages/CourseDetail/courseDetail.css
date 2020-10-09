@@ -64,8 +64,5 @@
 .course-doc iframe {
     min-height: 100vh;
     border: none;
-}
-
-#toolbar {
-    background-color: rgb(57, 216, 216);
+    border-bottom: 1px solid #c0c0c0;
 }
