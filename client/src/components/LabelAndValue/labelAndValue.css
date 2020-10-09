@@ -6,3 +6,7 @@
     font-weight: bold;
     text-transform: capitalize;
 }
+
+.label-value a {
+    font-size: 16px;
+}
