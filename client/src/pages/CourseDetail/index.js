@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import '../pages.css';
 import './courseDetail.css';
 import ButtonPrimary from '../../components/ButtonPrimary';
+import SyllabusSample from '../../images/syllabus_sample.pdf';
 
 export default function CourseDetail() {
 
@@ -18,13 +19,9 @@ export default function CourseDetail() {
         <div className='container-fluid course-doc'>
             <div className='row justify-content-center'>
                 <div className='col doc-wrapper'>
-                    <div className='row'>
-                        <div className='col text-right'>
-                            <Link to='/search-results'>
-                                <i className='fas fa-times close-course' />
-                            </Link>
-                        </div>
-                    </div>
+                    <Link to='/search-results'>
+                        <i className='fas fa-times close-course' />
+                    </Link>
                     <div className='row'>
                         <div className='col course-title'>Virtual Environment</div>
                     </div>
@@ -102,6 +99,11 @@ export default function CourseDetail() {
                     <div className='row mt-3'>
                         <div className='col syllabus-link'>
                             <span className='download-link'>Download Syllabus </span>{'(18 KB)'}
+                        </div>
+                    </div>
+                    <div className='row mt-1 mb-4'>
+                        <div className='col syllabus-viewer'>
+                            <iframe src={SyllabusSample} width='100%' />
                         </div>
                     </div>
                 </div>

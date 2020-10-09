@@ -1,13 +1,18 @@
 .doc-wrapper {
     margin: 30px 20px;
-    padding: 0 30px;
+    padding: 20px 30px;
     max-width: 1200px;
     border: 1px solid #c0c0c0;
     color: #7f7f7f;
+    position: relative;
 }
 
 .close-course {
     color: #2699fb;
+    position: absolute;
+    right: 22px;
+    top: 14px;
+    z-index: 2;
 }
 
 .course-doc .course-title {
@@ -54,4 +59,13 @@
 .download-link {
     color: #2699fb;
     font-weight: bold;
+}
+
+.course-doc iframe {
+    min-height: 100vh;
+    border: none;
+}
+
+#toolbar {
+    background-color: rgb(57, 216, 216);
 }
