@@ -57,6 +57,36 @@ export default function CourseDetail() {
                             commodo consequat.
                         </div>
                     </div>
+                    <div className='row mt-4'>
+                        <div className='col'>
+                            <span className='course-doc-label'>School: </span> The School of Information
+                        </div>
+                        <div className='col'>
+                            <span className='course-doc-label'>Level: </span> Graduate
+                        </div>
+                        <div className='col'>
+                            <span className='course-doc-label'>Term: </span> 2019 Fall
+                        </div>
+                    </div>
+                    <div className='row mt-2'>
+                        <div className='col'>
+                            <span className='course-doc-label'>Department: </span> NA
+                        </div>
+                        <div className='col'>
+                            <span className='course-doc-label'>Status: </span> Open
+                        </div>
+                        <div className='col'>
+                            <span className='course-doc-label'>Exam/Final Deadline: </span> 2019/12/3
+                        </div>
+                    </div>
+                    <div className='row mt-2'>
+                        <div className='col-4'>
+                            <span className='course-doc-label'>Grading Method: </span> Pass/Fail Allowed
+                        </div>
+                        <div className='col-4'>
+                            <span className='course-doc-label'>Course Component: </span> Tutorial
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
