@@ -99,6 +99,11 @@ export default function CourseDetail() {
                             <ButtonPrimary text='view textbook' />
                         </div>
                     </div>
+                    <div className='row mt-3'>
+                        <div className='col syllabus-link'>
+                            <span className='download-link'>Download Syllabus </span>{'(18 KB)'}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

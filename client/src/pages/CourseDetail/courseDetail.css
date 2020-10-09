@@ -46,3 +46,12 @@
 .course-doc-label {
     font-weight: bold;
 }
+
+.syllabus-link {
+    font-size: 14px;
+}
+
+.download-link {
+    color: #2699fb;
+    font-weight: bold;
+}
