@@ -1,4 +1,4 @@
-.instructor-detail {
+.instructor-container {
     padding: 40px 60px;
     color: #7f7f7f;
 }
@@ -15,10 +15,10 @@
     width: 100%;
 }
 
-.instructor-detail .name {
+.instructor-container .name {
     font-size: 24px;
 }
 
-.instructor-detail .title {
+.instructor-container .title {
     line-height: 18px;
 }

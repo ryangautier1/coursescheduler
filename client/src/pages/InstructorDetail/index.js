@@ -7,7 +7,7 @@ import LabelAndValue from '../../components/LabelAndValue';
 
 export default function InstructorDetail() {
     return (
-        <div className='container-fluid instructor-detail'>
+        <div className='container-fluid instructor-container'>
             <div className='row instructor-infos'>
                 <div className='col-md instructor-info p-4'>
                     <div className='row'>
@@ -22,7 +22,12 @@ export default function InstructorDetail() {
                                 </div>
                                 <ButtonPrimary text='View website' />
                             </div>
-                            <LabelAndValue label='School' value='The Information of School' />
+                            <div className='mt-4'>
+                                <LabelAndValue label='School' value='The Information of School' />
+                                <LabelAndValue label='Department' value='NA' />
+                                <LabelAndValue label='Office' value='UTA 5.326' />
+                                <LabelAndValue label='E-Mail' value='john.watson@ischool.utexas.edu' />
+                            </div>
                         </div>
                     </div>
                 </div>
