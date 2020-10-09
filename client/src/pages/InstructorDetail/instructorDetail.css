@@ -1,0 +1,12 @@
+.instructor-detail {
+    padding: 40px 60px;
+    
+}
+
+.instructor-infos {
+    column-gap: 20px;
+}
+
+.instructor-info {
+    background-color: #f1f9ff;
+}
