@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../pages.css';
 import './courseDetail.css';
+import ButtonPrimary from '../../components/ButtonPrimary';
 
 export default function CourseDetail() {
 
@@ -85,6 +86,17 @@ export default function CourseDetail() {
                         </div>
                         <div className='col-4'>
                             <span className='course-doc-label'>Course Component: </span> Tutorial
+                        </div>
+                    </div>
+                    <div className='row mt-4'>
+                        <div className='col-auto'>
+                            <ButtonPrimary text='add to planner' />
+                        </div>
+                        <div className='col-auto'>
+                            <ButtonPrimary text='view roommap' />
+                        </div>
+                        <div className='col-auto'>
+                            <ButtonPrimary text='view textbook' />
                         </div>
                     </div>
                 </div>
