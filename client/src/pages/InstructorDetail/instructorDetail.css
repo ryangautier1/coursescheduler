@@ -1,6 +1,6 @@
 .instructor-detail {
     padding: 40px 60px;
-    
+    color: #7f7f7f;
 }
 
 .instructor-infos {
@@ -9,4 +9,16 @@
 
 .instructor-info {
     background-color: #f1f9ff;
+}
+
+.instructor-infos img {
+    width: 100%;
+}
+
+.instructor-detail .name {
+    font-size: 24px;
+}
+
+.instructor-detail .title {
+    line-height: 18px;
 }
