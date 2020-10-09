@@ -1,0 +1,73 @@
+.doc-wrapper {
+    margin: 30px 20px;
+    padding: 20px 30px;
+    max-width: 1200px;
+    border: 1px solid #c0c0c0;
+    color: #7f7f7f;
+    position: relative;
+}
+
+.close-course {
+    color: #2699fb;
+    position: absolute;
+    right: 22px;
+    top: 14px;
+    z-index: 2;
+}
+
+.course-doc .course-title {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.course-doc .course-school {
+    font-size: 20px;
+}
+
+.course-doc .course-instructor {
+    font-size: 20px;
+}
+
+.course-instructor a {
+    color: #2699fb;
+    text-decoration: underline;
+}
+
+.capacity-bar {
+    height: 16px;
+    width: 140px;
+    border: 1px solid #7f7f7f;
+    border-radius: 4px;
+    margin: 0 5px 0 10px;
+}
+
+.capacity-count {
+    height: 100%;
+    width: 60%;
+    background-color: #2699fb;
+}
+
+.review-stars {
+    font-size: 20px;
+    color: #2699fb;
+    margin: 0 5px 0 10px;
+}
+
+.course-doc-label {
+    font-weight: bold;
+}
+
+.syllabus-link {
+    font-size: 14px;
+}
+
+.download-link {
+    color: #2699fb;
+    font-weight: bold;
+}
+
+.course-doc iframe {
+    min-height: 100vh;
+    border: none;
+    border-bottom: 1px solid #c0c0c0;
+}

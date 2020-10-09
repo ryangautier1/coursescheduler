@@ -1,0 +1,15 @@
+.search-results-container {
+    padding: 40px;
+}
+
+.label-small {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #2699fb;
+}
+
+.filter-items {
+    margin-top: 10px;
+    margin-bottom: 16px;
+}
