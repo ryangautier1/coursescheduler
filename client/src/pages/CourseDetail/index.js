@@ -27,7 +27,11 @@ export default function CourseDetail() {
                     </div>
                     <div className='row'>
                         <div className='col-auto course-school'>INF 385T</div>
-                        <div className='col course-instructor'>John Watson</div>
+                        <div className='col course-instructor'>
+                            <Link to='/instructor-detail'>
+                                John Watson
+                            </Link>
+                        </div>
                     </div>
                     <div className='row mt-2 align-items-end'>
                         <div className='col-auto'>Unique: 27185</div>

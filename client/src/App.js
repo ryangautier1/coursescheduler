@@ -4,6 +4,7 @@ import Home from './pages/Home/index.js';
 import SearchResults from './pages/SearchResults/index.js';
 import Navbar from './components/Navbar';
 import CourseDetail from './pages/CourseDetail/index.js';
+import InstructorDetail from './pages/InstructorDetail/index';
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
         </Route>
         <Route path='/course-detail'>
           <CourseDetail />
+        </Route>
+        <Route path='/instructor-detail'>
+          <InstructorDetail />
         </Route>
       </Switch>
     </Router>
