@@ -12,6 +12,11 @@ function Planner() {
     <div>
       <PlannerAside planners={planners} />
       <div className="planner-container">
+        <div className="d-flex flex-row planner-tabs">
+          <i className="fas fa-bars"></i>
+          <i className="far fa-calendar"></i>
+          <i className="fas fa-map"></i>
+        </div>
         {plannerTabState === "list" ?
           <PlannerList />
           : null}

@@ -1,5 +1,5 @@
 import React from 'react';
-import './planner.css';
+import './plannerAside.css';
 
 function PlannerAside(props) {
   const {planners} = props;
