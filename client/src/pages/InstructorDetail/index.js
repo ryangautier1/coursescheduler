@@ -74,7 +74,8 @@ export default function InstructorDetail() {
                     </div>
                 </div>
             </div>
-            <InstructorCoursesList />
+            <InstructorCoursesList label='Current Courses' courses={currentCourses} />
+            <InstructorCoursesList label='Courses Taught' courses={taughtCourses} />
         </div>
     )
 }

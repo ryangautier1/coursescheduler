@@ -7,16 +7,20 @@ export default function InstructorCoursesList({ label, courses }) {
         <div className='row mt-4 courses-list'>
             <div className='col'>
                 <div className='row mb-1'>
-                    <div className='col label-count'>Current Courses: 1</div>
+                    <div className='col label-count'>{`${label}: ${courses.length}`}</div>
                 </div>
-                <div className='row py-1 course-item'>
-                    <div className='col-md-2'>INF 385T</div>
-                    <div className='col-md-4'>Virtual Environment</div>
-                    <div className='col-md-4'>2019 Fall</div>
-                    <div className='col-md-2'>
-                        <Link to='/course-detail'>View Course</Link>
-                    </div>
-                </div>
+                {
+                    courses.map(course => (
+                        <div className='row py-2 course-item' key={course.code}>
+                            <div className='col-md-2'>{course.code}</div>
+                            <div className='col-md-4'>{course.name}</div>
+                            <div className='col-md-4'>{course.term}</div>
+                            <div className='col-md-2'>
+                                <Link to={course.link}>View Course</Link>
+                            </div>
+                        </div>
+                    ))
+                }
             </div>
         </div>
     )
