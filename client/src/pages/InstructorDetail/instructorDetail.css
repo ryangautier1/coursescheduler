@@ -1,12 +1,36 @@
-.instructor-detail {
-    padding: 40px 60px;
-    
+.instructor-container {
+    padding: 40px 80px;
+    color: #7f7f7f;
 }
 
 .instructor-infos {
     column-gap: 20px;
+    row-gap: 20px;
 }
 
 .instructor-info {
     background-color: #f1f9ff;
+}
+
+.instructor-infos img {
+    width: 100%;
+    max-width: 200px;
+}
+
+.instructor-container .name {
+    font-size: 24px;
+}
+
+.instructor-container .title {
+    line-height: 18px;
+}
+
+
+
+
+/* Smaller devices */
+@media only screen and (max-width: 768px) {
+    .instructor-container {
+        padding: 20px 40px;
+    }
 }
