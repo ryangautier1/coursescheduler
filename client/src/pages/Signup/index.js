@@ -6,13 +6,13 @@ import ButtonPrimary from '../../components/ButtonPrimary';
 
 export default function Signup() {
     return (
-        <div className='container-fluid'>
+        <div className='container-fluid signup-container'>
             <div className='row'>
                 <div className='col'>
-                    <div className='mt-4 text-center'>
+                    <div className='my-4 text-center'>
                         <PageTitle text='Signup' />
                     </div>
-                    <form>
+                    <form className='p-5'>
                         <div className="form-group">
                             <label htmlFor="email">Email address</label>
                             <input type="email" className="form-control" id="email" aria-describedby="emailHelp" />
