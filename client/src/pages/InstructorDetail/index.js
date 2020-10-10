@@ -5,6 +5,7 @@ import ButtonPrimary from '../../components/ButtonPrimary';
 import UserImg from '../../images/male.svg';
 import LabelAndValue from '../../components/LabelAndValue';
 import InstructorCoursesList from '../../components/InstructorCoursesList';
+import BackLink from '../../components/BackLink';
 
 export default function InstructorDetail() {
 
@@ -16,7 +17,7 @@ export default function InstructorDetail() {
             link: '/course-detail'
         }
     ];
-    
+
     const taughtCourses = [
         {
             code: 'INF 342',
@@ -40,7 +41,7 @@ export default function InstructorDetail() {
 
     return (
         <div className='container-fluid instructor-container'>
-            <div className='row instructor-infos'>
+            <div className='row mb-5 instructor-infos'>
                 <div className='col-md instructor-info p-4'>
                     <div className='row'>
                         <div className='col-lg-4'>
@@ -76,6 +77,11 @@ export default function InstructorDetail() {
             </div>
             <InstructorCoursesList label='Current Courses' courses={currentCourses} />
             <InstructorCoursesList label='Courses Taught' courses={taughtCourses} />
+            <div className='row mt-4'>
+                <div className='col p-0'>
+                    <BackLink text='Back to previous page' path='/search-results' />
+                </div>
+            </div>
         </div>
     )
 }
