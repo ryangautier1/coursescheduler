@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './instructorCoursesList.css';
 
-export default function InstructorCoursesList() {
+export default function InstructorCoursesList({ label, courses }) {
     return (
         <div className='row mt-4 courses-list'>
             <div className='col'>

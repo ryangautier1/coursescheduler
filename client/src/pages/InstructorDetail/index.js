@@ -7,6 +7,37 @@ import LabelAndValue from '../../components/LabelAndValue';
 import InstructorCoursesList from '../../components/InstructorCoursesList';
 
 export default function InstructorDetail() {
+
+    const currentCourses = [
+        {
+            code: 'INF 385T',
+            name: 'Virtual Environment',
+            term: '2019 Fall',
+            link: '/course-detail'
+        }
+    ];
+    
+    const taughtCourses = [
+        {
+            code: 'INF 342',
+            name: 'Perspective on Information',
+            term: '2018 Fall',
+            link: '/course-detail'
+        },
+        {
+            code: 'INF 311',
+            name: 'Interaction Design',
+            term: '2018 Spring',
+            link: '/course-detail'
+        },
+        {
+            code: 'INF 313',
+            name: 'Understanding Research',
+            term: '2016 Summer',
+            link: '/course-detail'
+        }
+    ]
+
     return (
         <div className='container-fluid instructor-container'>
             <div className='row instructor-infos'>
