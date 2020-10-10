@@ -4,6 +4,7 @@ import './instructorDetail.css';
 import ButtonPrimary from '../../components/ButtonPrimary';
 import UserImg from '../../images/male.svg';
 import LabelAndValue from '../../components/LabelAndValue';
+import InstructorCoursesList from '../../components/InstructorCoursesList';
 
 export default function InstructorDetail() {
     return (
@@ -42,6 +43,7 @@ export default function InstructorDetail() {
                     </div>
                 </div>
             </div>
+            <InstructorCoursesList />
         </div>
     )
 }
