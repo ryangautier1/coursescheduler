@@ -1,9 +1,14 @@
 .planner-side {
   background: #2699fb;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   width: 200px;
   z-index: 0;
+  padding: 8rem 2rem;
+}
+
+h6 {
+  color: #fff;
 }
