@@ -36,12 +36,19 @@ function PlannerCalendar() {
         <div className="time">7 PM</div>
         <div className="time">8 PM</div>
       </div>
-      <div className="days d-flex justify-content-around">
-        <div className="day">Monday</div>
-        <div className="day">Tuesday</div>
-        <div className="day">Wednesday</div>
-        <div className="day">Thursday</div>
-        <div className="day">Friday</div>
+      <div className="days row">
+        <div className="day col text-center">Monday</div>
+        <div className="day col text-center">Tuesday</div>
+        <div className="day col text-center">Wednesday</div>
+        <div className="day col text-center">Thursday</div>
+        <div className="day col text-center">Friday</div>
+      </div>
+      <div className="courses row">
+         <div className="eight-ten col text-center">Monday</div>
+          <div className="col text-center"></div>
+          <div className="eight-ten col text-center">Wednesday</div>
+          <div className="col text-center"></div>
+          <div className="eight-ten col text-center">Friday</div>
       </div>
     </div>
   )

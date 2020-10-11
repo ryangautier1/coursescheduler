@@ -1,10 +1,11 @@
 .calendar-background {
   padding-top: 6rem;
+  min-width: 580px;
 }
 
 .line {
   border-top: 1px solid #2698fb49;
-  margin: 0 0 2rem 2rem;
+  margin: 0 0 2.3rem 2rem;
   width: 95%;
 }
 
@@ -20,15 +21,35 @@
 }
 
 .time {
-  margin-bottom: 0.75rem;
+  margin-bottom: 1.05rem;
 }
 
 .days {
-  width: 90%;
+  width: 81%;
   position: absolute;
-  margin-left: 1.2rem;
+  margin-left: 3.5rem;
   top: 3rem;
   font-size: 16px;
   font-weight: 600;
   color: #666;
+}
+
+.courses {
+  position: absolute;
+  top: 6rem;
+  margin-left: 3.5rem;
+  width: 81%;
+}
+
+
+.eight-ten:nth-child(even) {
+  background: #2698fb;
+  height: 4.8rem;
+  color: #fff;
+}
+
+.eight-ten:nth-child(odd) {
+  background: #777;
+  height: 4.8rem;
+  color: #fff;
 }
