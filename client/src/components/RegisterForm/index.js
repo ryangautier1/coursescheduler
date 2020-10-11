@@ -35,7 +35,26 @@ export default function RegisterForm() {
                         </div>
                     </form>
                 </div>
-                <div className='tab-pane fade' id='list-planner' role='tabpanel' aria-labelledby='list-planner-list'>Planner Form...</div>
+                <div className='tab-pane fade' id='list-planner' role='tabpanel' aria-labelledby='list-planner-list'>
+                    <form className='pt-5 pb-3 px-4'>
+                        <div className='form-row'>
+                            <div className='form-group col'>
+                                <label htmlFor='planner-select'>Planner List</label>
+                                <select id='planner-select' className='form-control'>
+                                    <option selected>Suggested</option>
+                                    <option>Trail 1</option>
+                                    <option>Trail 2</option>
+                                    <option>Trail 3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div className='form-row'>
+                            <div className='form-group col d-flex justify-content-end'>
+                                <ButtonPrimary text='Register' submit />
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     )
