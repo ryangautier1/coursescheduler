@@ -3,5 +3,9 @@
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     height: 60px;
-    /* background-color: #f1f9ff; */
+}
+
+.register-form-wrapper form {
+    margin: 0;
+    background-color: #f1f9ff;
 }
