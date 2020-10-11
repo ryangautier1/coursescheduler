@@ -53,12 +53,14 @@
   background: #2698fb;
   height: 4.7rem;
   color: #fff;
+  font-weight: 600;
 }
 
 .eight-ten:nth-child(odd) {
   background: #777;
   height: 4.7rem;
   color: #fff;
+  font-weight: 600;
 }
 
 .nine-twelve-row {
@@ -69,10 +71,30 @@
   background: #2698fb;
   height: 6.5rem;
   color: #fff;
+  font-weight: 600;
 }
 
 .nine-twelve:nth-child(odd) {
   background: #777;
   height: 6.5rem;
   color: #fff;
+  font-weight: 600;
+}
+
+.ten-twelve-row {
+  margin-top: -4rem;
+}
+
+.ten-twelve:nth-child(even) {
+  background: #aaa;
+  height: 4rem;
+  color: #858789;
+  font-weight: 600;
+}
+
+.ten-twelve:nth-child(odd) {
+  background: #bce0fd;
+  height: 4rem;
+  color: #858789;
+  font-weight: 600;
 }

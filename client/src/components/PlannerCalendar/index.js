@@ -66,20 +66,40 @@ function PlannerCalendar() {
         </div>
 
         <div className="row nine-twelve-row">
-            <div className="col"></div>
-            <div className="nine-twelve col">
-              ITD 380
+          <div className="col"></div>
+          <div className="nine-twelve col">
+            ITD 380
             <br />
-              <span className="class-name">Design Thinking</span>
-            </div>
-            <div className="col"></div>
-            <div className="nine-twelve col">
-              ITD 380
-            <br />
-              <span className="class-name">Design Thinking</span>
-            </div>
-            <div className="col"></div>
+            <span className="class-name">Design Thinking</span>
           </div>
+          <div className="col"></div>
+          <div className="nine-twelve col">
+            ITD 380
+            <br />
+            <span className="class-name">Design Thinking</span>
+          </div>
+          <div className="col"></div>
+        </div>
+
+        <div className="row ten-twelve-row">
+          <div className="ten-twelve col">
+            ITD 380
+            <br />
+            <span className="class-name">Design Thinking</span>
+          </div>
+          <div className="col"></div>
+          <div className="ten-twelve col">
+            ITD 380
+            <br />
+            <span className="class-name">Design Thinking</span>
+          </div>
+          <div className="col"></div>
+          <div className="ten-twelve col">
+            ITD 380
+            <br />
+            <span className="class-name">Design Thinking</span>
+          </div>
+        </div>
 
       </div>
     </div>
