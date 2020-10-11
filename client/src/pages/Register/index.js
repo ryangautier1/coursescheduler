@@ -6,9 +6,9 @@ import RegisterForm from '../../components/RegisterForm';
 
 export default function Register() {
     return (
-        <div className='container'>
+        <div className='container-fluid'>
             <div className='row'>
-                <div className='col'>
+                <div className='col col-md-10 col-lg-6'>
                     <PageTitle text='Register' />
                     <RegisterForm />
                 </div>
