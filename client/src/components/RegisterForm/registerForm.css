@@ -6,6 +6,6 @@
 }
 
 .register-form-wrapper form {
-    margin: 0;
     background-color: #f1f9ff;
+    /* margin: 0; */
 }
