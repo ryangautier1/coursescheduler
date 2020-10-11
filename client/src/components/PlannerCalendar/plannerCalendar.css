@@ -41,15 +41,38 @@
   width: 81%;
 }
 
+.class-name {
+  font-size: 12px;
+}
+
+.eight-ten-row {
+  margin-top: 2.4rem;
+}
 
 .eight-ten:nth-child(even) {
   background: #2698fb;
-  height: 4.8rem;
+  height: 4.7rem;
   color: #fff;
 }
 
 .eight-ten:nth-child(odd) {
   background: #777;
-  height: 4.8rem;
+  height: 4.7rem;
+  color: #fff;
+}
+
+.nine-twelve-row {
+  margin-top: -1.8rem;
+}
+
+.nine-twelve:nth-child(even) {
+  background: #2698fb;
+  height: 6.5rem;
+  color: #fff;
+}
+
+.nine-twelve:nth-child(odd) {
+  background: #777;
+  height: 6.5rem;
   color: #fff;
 }

@@ -43,12 +43,44 @@ function PlannerCalendar() {
         <div className="day col text-center">Thursday</div>
         <div className="day col text-center">Friday</div>
       </div>
-      <div className="courses row">
-         <div className="eight-ten col text-center">Monday</div>
-          <div className="col text-center"></div>
-          <div className="eight-ten col text-center">Wednesday</div>
-          <div className="col text-center"></div>
-          <div className="eight-ten col text-center">Friday</div>
+
+      <div className="courses">
+        <div className="row eight-ten-row">
+          <div className="eight-ten col">
+            ITD 380
+            <br />
+            <span className="class-name">Design Thinking</span>
+          </div>
+          <div className="col"></div>
+          <div className="eight-ten col">
+            ITD 380
+            <br />
+            <span className="class-name">Design Thinking</span>
+          </div>
+          <div className="col"></div>
+          <div className="eight-ten col">
+            ITD 380
+            <br />
+            <span className="class-name">Design Thinking</span>
+          </div>
+        </div>
+
+        <div className="row nine-twelve-row">
+            <div className="col"></div>
+            <div className="nine-twelve col">
+              ITD 380
+            <br />
+              <span className="class-name">Design Thinking</span>
+            </div>
+            <div className="col"></div>
+            <div className="nine-twelve col">
+              ITD 380
+            <br />
+              <span className="class-name">Design Thinking</span>
+            </div>
+            <div className="col"></div>
+          </div>
+
       </div>
     </div>
   )
