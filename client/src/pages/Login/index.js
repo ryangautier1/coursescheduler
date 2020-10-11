@@ -1,16 +1,16 @@
 import React from 'react';
 import '../pages.css';
-import './signup.css';
+import './login.css';
 import PageTitle from '../../components/PageTitle';
 import ButtonPrimary from '../../components/ButtonPrimary';
 
-export default function Signup() {
+export default function Login() {
     return (
-        <div className='container-fluid signup-container'>
+        <div className='container-fluid login-container'>
             <div className='row'>
                 <div className='col'>
                     <div className='my-4 text-center'>
-                        <PageTitle text='Signup' />
+                        <PageTitle text='Login' />
                     </div>
                     <form className='p-5'>
                         <div className="form-group">
@@ -22,11 +22,7 @@ export default function Signup() {
                             <label htmlFor="password">Password</label>
                             <input type="password" className="form-control" id="password" />
                         </div>
-                        <div className="form-group">
-                            <label htmlFor="confirmPassword">Confirm Password</label>
-                            <input type="password" className="form-control" id="confirmPassword" />
-                        </div>
-                        <ButtonPrimary text='Sign up' submit />
+                        <ButtonPrimary text='Log in' submit />
                     </form>
                 </div>
             </div>

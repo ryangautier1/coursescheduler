@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import CourseDetail from './pages/CourseDetail/index';
 import InstructorDetail from './pages/InstructorDetail/index';
 import Signup from './pages/Signup/index';
+import Login from './pages/Login/index';
 
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
         </Route>
         <Route path='/signup'>
           <Signup />
+        </Route>
+        <Route path='/login'>
+          <Login />
         </Route>
         <Route path='/search-results'>
           <SearchResults />
