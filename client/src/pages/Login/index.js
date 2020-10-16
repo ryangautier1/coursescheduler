@@ -14,9 +14,8 @@ export default function Login() {
                     </div>
                     <form className='p-5'>
                         <div className="form-group">
-                            <label htmlFor="email">Email</label>
-                            <input type="email" className="form-control" id="email" aria-describedby="emailHelp" />
-                            <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+                            <label htmlFor="username">Username</label>
+                            <input type="text" className="form-control" id="username" />
                         </div>
                         <div className="form-group">
                             <label htmlFor="password">Password</label>
