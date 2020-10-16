@@ -107,7 +107,7 @@ export default function CourseDetail() {
                     </div>
                     <div className='row mt-1 mb-4'>
                         <div className='col syllabus-viewer'>
-                            <iframe src={SyllabusSample} width='100%' />
+                            <iframe title='Syllabus' src={SyllabusSample} width='100%' />
                         </div>
                     </div>
                 </div>
