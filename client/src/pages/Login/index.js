@@ -21,7 +21,7 @@ export default function Login() {
                             <label htmlFor="password">Password</label>
                             <input type="password" className="form-control" id="password" />
                         </div>
-                        <ButtonPrimary text='Log in' submit />
+                        <ButtonPrimary text='Log in' submit signup />
                     </form>
                 </div>
             </div>

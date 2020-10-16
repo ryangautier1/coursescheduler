@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const UserContext = React.createContext();
 
 // Provider
 function UserProvider(props) {
+
+    // Signup
+
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
 
     function handleSignup(e, username, password, confirmPassword) {
         e.preventDefault();
@@ -26,6 +32,12 @@ function UserProvider(props) {
     return (
         <UserContext.Provider
             value={{
+                username,
+                setUsername,
+                password,
+                setPassword,
+                confirmPassword,
+                setConfirmPassword,
                 handleSignup
             }}
         >
