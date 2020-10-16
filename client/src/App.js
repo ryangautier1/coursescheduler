@@ -5,6 +5,7 @@ import SearchResults from './pages/SearchResults/index.js';
 import Navbar from './components/Navbar';
 import CourseDetail from './pages/CourseDetail/index.js';
 import InstructorDetail from './pages/InstructorDetail/index';
+import Register from './pages/Register';
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
         </Route>
         <Route path='/instructor-detail'>
           <InstructorDetail />
+        </Route>
+        <Route path='/register'>
+          <Register />
         </Route>
       </Switch>
     </Router>
