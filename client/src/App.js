@@ -7,6 +7,7 @@ import CourseDetail from './pages/CourseDetail/index';
 import InstructorDetail from './pages/InstructorDetail/index';
 import Signup from './pages/Signup/index';
 import Login from './pages/Login/index';
+import Register from './pages/Register';
 
 function App() {
   return (
@@ -30,6 +31,9 @@ function App() {
         </Route>
         <Route path='/instructor-detail'>
           <InstructorDetail />
+        </Route>
+        <Route path='/register'>
+          <Register />
         </Route>
       </Switch>
     </Router>

@@ -5,7 +5,7 @@ export default function ButtonPrimary({ text, submit }) {
     return (
         <button
             className='btn btn-primary button-primary'
-            type={submit ? `submit` : 'button'}
+            type={submit ? "submit" : "button"}
         >
             {text}
         </button>
