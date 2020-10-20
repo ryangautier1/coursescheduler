@@ -6,12 +6,19 @@ const UserContext = React.createContext();
 // Provider
 function UserProvider(props) {
 
-    // Signup
+    // User
+    const [user, setUser] = useState({
+        isLoggedIn: false,
+        info: {}
+    })
+
+    // Signup & Login
     const [name, setName] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
+    // Signup
     function handleSignup(e, name, username, password, confirmPassword) {
         e.preventDefault();
 
@@ -42,7 +49,6 @@ function UserProvider(props) {
         }
     }
 
-
     // Login
     function handleLogin(e, username, password) {
         e.preventDefault();
@@ -65,6 +71,23 @@ function UserProvider(props) {
         }
     }
 
+    // User Data
+    function fetchUser() {
+        API
+            .then(res => {
+                setUser({
+                    isLoggedIn: true,
+                    info: res.data
+                });
+            })
+            .catch(() => {
+                setUser({
+                    isLoggedIn: false,
+                    info: {}
+                });
+            })
+    }
+
     return (
         <UserContext.Provider
             value={{
@@ -77,7 +100,8 @@ function UserProvider(props) {
                 confirmPassword,
                 setConfirmPassword,
                 handleSignup,
-                handleLogin
+                handleLogin,
+                user
             }}
         >
             {props.children}
