@@ -23,7 +23,7 @@ function Navbar() {
               <div className="nav-link">Planner</div>
             </li>
           </Link>
-          <Link to="/dashboard" onClick={() => {setNavState("/dashbaord")}}>
+          <Link to="/dashboard" onClick={() => {setNavState("/dashboard")}}>
             <li className={navState === "/dashboard" ? "nav-item active" : "nav-item"}>
               <div className="nav-link">Dashboard</div>
             </li>
