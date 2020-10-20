@@ -6,6 +6,7 @@ import { UserConsumer } from '../../utils/UserContext';
 
 export default function Signup() {
 
+    const nameRef = useRef();
     const usernameRef = useRef();
     const passwordRef = useRef();
     const confirmPassRef = useRef();
@@ -20,9 +21,19 @@ export default function Signup() {
                     <UserConsumer>
                         {
                             value => {
-                                const { username, password, confirmPassword, setUsername, setPassword, setConfirmPassword, handleSignup } = value;
+                                const { name, username, password, confirmPassword, setName, setUsername, setPassword, setConfirmPassword, handleSignup } = value;
                                 return (
                                     <form className='p-5'>
+                                        <div className="form-group">
+                                            <label htmlFor="name">Name</label>
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                id="name"
+                                                ref={nameRef}
+                                                onChange={() => setName(nameRef.current.value)}
+                                            />
+                                        </div>
                                         <div className="form-group">
                                             <label htmlFor="username">Username</label>
                                             <input
@@ -56,7 +67,7 @@ export default function Signup() {
                                         <button
                                             className='btn btn-primary button-primary'
                                             type='submit'
-                                            onClick={(e) => handleSignup(e, username, password, confirmPassword)}
+                                            onClick={(e) => handleSignup(e, name, username, password, confirmPassword)}
                                         >
                                             Sign up
                                         </button>

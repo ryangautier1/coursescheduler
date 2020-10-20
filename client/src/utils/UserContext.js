@@ -7,18 +7,20 @@ const UserContext = React.createContext();
 function UserProvider(props) {
 
     // Signup
+    const [name, setName] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
-    function handleSignup(e, username, password, confirmPassword) {
+    function handleSignup(e, name, username, password, confirmPassword) {
         e.preventDefault();
 
-        if (password && confirmPassword) {
+        if (name && username && password && confirmPassword) {
             if (password.length >= 6) {
                 if (password === confirmPassword) {
                     API
                         .signup({
+                            name: name,
                             username: username,
                             password: password
                         })
@@ -35,13 +37,15 @@ function UserProvider(props) {
                 console.log('Password must be at least 6 characters long.')
             }
         } else {
-            console.log('Please confirm password.')
+            console.log('Please fill out all fields.')
         }
     }
 
     return (
         <UserContext.Provider
             value={{
+                name,
+                setName,
                 username,
                 setUsername,
                 password,
