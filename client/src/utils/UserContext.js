@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import API from './API';
 
 const UserContext = React.createContext();
 
@@ -12,19 +13,29 @@ function UserProvider(props) {
 
     function handleSignup(e, username, password, confirmPassword) {
         e.preventDefault();
-        console.log("hello")
 
         if (password && confirmPassword) {
             if (password.length >= 6) {
                 if (password === confirmPassword) {
-                    // API to create user
-                    console.log("Creating User: " + username);
+                    API
+                        .signup({
+                            username: username,
+                            password: password
+                        })
+                        .then(res => {
+                            console.log('User is signed up...', res);
+                        })
+                        .catch(err => {
+                            console.log('Failed signup...', err);
+                        })
                 } else {
-                    console.log("password must be the same")
+                    console.log("Password and confirm password must be the same.")
                 }
+            } else {
+                console.log('Password must be at least 6 characters long.')
             }
         } else {
-            console.log("Passwords are different")
+            console.log('Please confirm password.')
         }
     }
 

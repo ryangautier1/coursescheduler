@@ -58,7 +58,7 @@ export default function Signup() {
                                             type='submit'
                                             onClick={(e) => handleSignup(e, username, password, confirmPassword)}
                                         >
-                                            Log In
+                                            Sign up
                                         </button>
                                     </form>
                                 )
