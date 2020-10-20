@@ -9,7 +9,7 @@ function Planner() {
   const [plannerTabState, setPlannerTabState] = useState("list");
 
   // 
-  const planners = ["one", "two"];
+  const planners = ["one", "two", "three"];
   const semester = "Spring 2021"
   const courses = [
     {

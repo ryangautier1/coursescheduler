@@ -1,5 +1,5 @@
 .planner-container {
-  margin-left: 250px;
+  margin-left: 300px;
   margin-top: 3rem;
   padding: 0 2rem;
   position: relative;
@@ -31,4 +31,10 @@ i:nth-child(3) {
 
 i:hover {
   background-color: #2381d3;
+}
+
+@media screen and (max-width: 992px) {
+  .planner-container {
+    margin-left: 2rem;
+  }
 }

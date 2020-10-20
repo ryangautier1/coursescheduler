@@ -5,7 +5,7 @@
 
 .line {
   border-top: 1px solid #2698fb49;
-  margin: 0 0 2.3rem 2rem;
+  margin-left: 2rem;
   width: 95%;
 }
 
@@ -25,9 +25,9 @@
 }
 
 .days {
-  width: 81%;
+  width: 85%;
   position: absolute;
-  margin-left: 3.5rem;
+  margin-left: 2.5rem;
   top: 3rem;
   font-size: 16px;
   font-weight: 600;
@@ -38,63 +38,27 @@
   position: absolute;
   top: 6rem;
   margin-left: 3.5rem;
-  width: 81%;
+  width: 85%;
 }
 
 .class-name {
   font-size: 12px;
 }
 
-.eight-ten-row {
-  margin-top: 2.4rem;
+.course-row {
+  position: absolute;
+  width: 100%;
+  left: 0;
 }
 
-.eight-ten:nth-child(even) {
+.course:nth-child(even) {
   background: #2698fb;
-  height: 4.7rem;
   color: #fff;
   font-weight: 600;
 }
 
-.eight-ten:nth-child(odd) {
+.course:nth-child(odd) {
   background: #777;
-  height: 4.7rem;
   color: #fff;
-  font-weight: 600;
-}
-
-.nine-twelve-row {
-  margin-top: -1.8rem;
-}
-
-.nine-twelve:nth-child(even) {
-  background: #2698fb;
-  height: 6.5rem;
-  color: #fff;
-  font-weight: 600;
-}
-
-.nine-twelve:nth-child(odd) {
-  background: #777;
-  height: 6.5rem;
-  color: #fff;
-  font-weight: 600;
-}
-
-.ten-twelve-row {
-  margin-top: -4rem;
-}
-
-.ten-twelve:nth-child(even) {
-  background: #aaa;
-  height: 4rem;
-  color: #858789;
-  font-weight: 600;
-}
-
-.ten-twelve:nth-child(odd) {
-  background: #bce0fd;
-  height: 4rem;
-  color: #858789;
   font-weight: 600;
 }
