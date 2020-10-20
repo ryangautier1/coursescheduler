@@ -6,5 +6,8 @@ export default {
     },
     login: function (data) {
         return axios.post('/api/user-login/login', data);
+    },
+    fetchUser: function () {
+        return axios.get('/api/user-login/user_data');
     }
 };
