@@ -1,0 +1,19 @@
+.courses-list {
+    /* background-color: teal; */
+}
+
+.courses-list>div {
+    /* padding: 0; */
+}
+
+.courses-list .label-count {
+    padding: 0;
+}
+
+.courses-list .course-item {
+    background-color: #f1f9ff;
+}
+
+.course-item a {
+    text-decoration: underline;
+}
