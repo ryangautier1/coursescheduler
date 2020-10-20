@@ -25,6 +25,7 @@ function UserProvider(props) {
                             password: password
                         })
                         .then(res => {
+                            // Send user thru login process into profile or dashboard page
                             console.log('User is signed up...', res);
                         })
                         .catch(err => {
@@ -41,6 +42,29 @@ function UserProvider(props) {
         }
     }
 
+
+    // Login
+    function handleLogin(e, username, password) {
+        e.preventDefault();
+
+        if (username && password) {
+            API
+                .login({
+                    username: username,
+                    password: password
+                })
+                .then(() => {
+                    // Send user to profile or dashboard
+                    console.log('User is now logged in.')
+                })
+                .catch(err => {
+                    console.log('Something went wrong while logging in...', err);
+                })
+        } else {
+            console.log('Missing username or password.');
+        }
+    }
+
     return (
         <UserContext.Provider
             value={{
@@ -52,7 +76,8 @@ function UserProvider(props) {
                 setPassword,
                 confirmPassword,
                 setConfirmPassword,
-                handleSignup
+                handleSignup,
+                handleLogin
             }}
         >
             {props.children}
