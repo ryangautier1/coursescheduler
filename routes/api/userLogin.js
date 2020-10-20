@@ -8,6 +8,7 @@ router.post("/login", passport.authenticate("userlocal"), function(req, res) {
 
 router.post("/signup", function(req, res) {
   db.User.create({
+    name: req.body.name,
     username: req.body.username,
     password: req.body.password
   })
@@ -36,7 +37,12 @@ router.get("/user_data", function (req, res) {
     // Otherwise send back the user's username and id
     res.json({
       id: req.user._id,
-      username: req.user.username
+      username: req.user.username,
+      name: req.user.name,
+      registered: req.user.registered,
+      userType: req.user.userType,
+      amountOwed: req.user.amountOwed,
+      planners: req.user.planners
     });
   }
 });
