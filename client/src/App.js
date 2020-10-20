@@ -1,9 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './pages/Home/index.js';
-import SearchResults from './pages/SearchResults/index';
+import Planner from './pages/Planner';
+import SearchResults from './pages/SearchResults';
 import Navbar from './components/Navbar';
-import CourseDetail from './pages/CourseDetail/index';
+import CourseDetail from './pages/CourseDetail/index.js';
 import InstructorDetail from './pages/InstructorDetail/index';
 import Signup from './pages/Signup/index';
 import Login from './pages/Login/index';

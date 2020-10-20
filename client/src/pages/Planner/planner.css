@@ -1,0 +1,40 @@
+.planner-container {
+  margin-left: 300px;
+  margin-top: 3rem;
+  padding: 0 2rem;
+  position: relative;
+}
+
+.planner-tabs {
+  position: absolute;
+  top: 0;
+  right: 35px;
+  color: #fff;
+  border-radius: 2px;
+}
+
+i {
+  padding: 0.5rem;
+  background-color: #2699fb;
+  cursor: pointer;
+}
+
+i:nth-child(1) {
+  border-radius: 2px 0 0 2px;
+  border-right: 1px #58a8ee solid;
+}
+
+i:nth-child(3) {
+  border-radius: 0 2px 2px 0;
+  border-left: 1px #58a8ee solid;
+}
+
+i:hover {
+  background-color: #2381d3;
+}
+
+@media screen and (max-width: 992px) {
+  .planner-container {
+    margin-left: 2rem;
+  }
+}

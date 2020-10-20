@@ -1,0 +1,64 @@
+.calendar-background {
+  padding-top: 6rem;
+  min-width: 580px;
+}
+
+.line {
+  border-top: 1px solid #2698fb49;
+  margin-left: 2rem;
+  width: 95%;
+}
+
+
+.times {
+  position: absolute;
+  top: 5.4rem;
+  left: 0;
+  z-index: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #666;
+}
+
+.time {
+  margin-bottom: 1.05rem;
+}
+
+.days {
+  width: 85%;
+  position: absolute;
+  margin-left: 2.5rem;
+  top: 3rem;
+  font-size: 16px;
+  font-weight: 600;
+  color: #666;
+}
+
+.courses {
+  position: absolute;
+  top: 6rem;
+  margin-left: 3.5rem;
+  width: 85%;
+}
+
+.class-name {
+  font-size: 12px;
+}
+
+.course-row {
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+
+.course:nth-child(even) {
+  background: #2698fb;
+  color: #fff;
+  font-weight: 600;
+}
+
+.course:nth-child(odd) {
+  background: #777;
+  color: #fff;
+  font-weight: 600;
+}
