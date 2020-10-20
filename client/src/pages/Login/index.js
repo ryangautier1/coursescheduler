@@ -2,7 +2,7 @@ import React from 'react';
 import '../pages.css';
 import './login.css';
 import PageTitle from '../../components/PageTitle';
-import ButtonPrimary from '../../components/ButtonPrimary';
+import { UserConsumer } from '../../utils/UserContext';
 
 export default function Login() {
     return (
@@ -21,7 +21,22 @@ export default function Login() {
                             <label htmlFor="password">Password</label>
                             <input type="password" className="form-control" id="password" />
                         </div>
-                        <ButtonPrimary text='Log in' submit signup />
+                        <UserConsumer>
+                            {
+                                value => {
+                                    const { username, password, confirmPassword, handleSignup } = value;
+                                    return (
+                                        <button
+                                            className='btn btn-primary button-primary'
+                                            type='submit'
+                                            onClick={(e) => handleSignup(e, username, password, confirmPassword)}
+                                        >
+                                            Log In
+                                        </button>
+                                    )
+                                }
+                            }
+                        </UserConsumer>
                     </form>
                 </div>
             </div>
