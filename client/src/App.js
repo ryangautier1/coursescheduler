@@ -9,6 +9,7 @@ import InstructorDetail from './pages/InstructorDetail/index';
 import Signup from './pages/Signup/index';
 import Login from './pages/Login/index';
 import Register from './pages/Register';
+import Dashboard from './pages/Dashboard';
 import { UserProvider } from './utils/UserContext';
 
 function App() {
@@ -25,6 +26,12 @@ function App() {
           </Route>
           <Route path='/login'>
             <Login />
+          </Route>
+          <Route path='/planner'>
+            <Planner />
+          </Route>
+          <Route path='/dashboard'>
+            <Dashboard />
           </Route>
           <Route path='/search-results'>
             <SearchResults />

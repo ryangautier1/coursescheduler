@@ -1,0 +1,33 @@
+.dashboard-container {
+  padding: 1rem 0.5rem;
+}
+
+.row {
+  margin: 0 !important;
+}
+
+.semester-heading {
+  font-size: 20px;
+  font-weight: 500;
+  padding-top: 6px;
+}
+
+.dashboard-section {
+  border: 1px solid #888;
+  font-size: 24px;
+  padding: 1rem;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #888;
+}
+
+.dashboard-section-arrow {
+  background-color: #ffffff00;
+  border: none !important;
+}
+
+.dashboard-section-arrow:hover {
+  background-color: #ffffff00;
+  border: none !important;
+  color: #555;
+}
