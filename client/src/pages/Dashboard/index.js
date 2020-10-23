@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 import './dashboard.css';
 
 function Dashboard() {
   const [semesterState, setSemesterState] = useState("Spring 2021");
   const courses = [
     {
+      id: 1,
       name: "ITD 380",
       title: "Intro Design",
       room: "ABC Room",
@@ -14,6 +17,7 @@ function Dashboard() {
       endTime: "10:30:00"
     },
     {
+      id: 2,
       name: "ITD 380",
       title: "Intro Design",
       room: "ABC Room",
@@ -26,8 +30,6 @@ function Dashboard() {
   const toggleDashboardSection = (e) => {
     e.target.classList.toggle("fa-arrow-down");
     e.target.classList.toggle("fa-arrow-up");
-    let toggleId = e.target.getAttribute("data-section");
-    // document.getElementById(toggleId).classList.toggle("d-none");
   };
 
   return (
@@ -61,7 +63,7 @@ function Dashboard() {
               <tbody>
                 {courses.map((course) => {
                   return (
-                    <tr>
+                    <tr key={course.id}>
                       <th scope="row">{course.name}</th>
                       <td>{course.title}</td>
                       <td>{course.room}</td>
@@ -74,11 +76,20 @@ function Dashboard() {
             </table>
           </div>
         </div>
-        <div className="dashboard-section"><i className="fas fa-arrow-down dashboard-section-arrow" onClick={(e) => { toggleDashboardSection(e) }}></i>My Waitlist</div>
-        <div className="dashboard-section"><i className="fas fa-arrow-down dashboard-section-arrow" onClick={(e) => { toggleDashboardSection(e) }}></i>My Planner</div>
+        <div className="dashboard-section">
+          <i className="fas fa-arrow-down dashboard-section-arrow"
+            onClick={(e) => { toggleDashboardSection(e) }}></i>
+          <h4 className="dashboard-section-heading d-inline-block">My Waitlist</h4>
+        </div>
+        <div className="dashboard-section">
+          <i className="fas fa-arrow-down dashboard-section-arrow"
+            onClick={(e) => { toggleDashboardSection(e) }}></i>
+          <h4 className="dashboard-section-heading d-inline-block">My Planner</h4>
+        </div>
       </div>
       <div className="col-md-3 col-12">
         <h3 className="font-weight-light">DASHBOARD</h3>
+        <Calendar />
       </div>
     </div>
   );

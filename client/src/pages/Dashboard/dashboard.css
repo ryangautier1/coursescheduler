@@ -36,3 +36,11 @@
   border: none !important;
   color: #555;
 }
+
+th {
+  font-size: 12px;
+}
+
+tr {
+  font-size: 12px;
+}
