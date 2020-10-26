@@ -9,14 +9,20 @@ const userSchema = new Schema({
         required: true
     },
     registered: [
-      {
-          type: Schema.Types.ObjectId,
-          ref: "Course"
-      }
+        {
+            type: Schema.Types.ObjectId,
+            ref: "Course"
+        }
+    ],
+    waitlist: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "Course"
+        }
     ],
     username: {
-      type: String,
-      unique: true
+        type: String,
+        unique: true
     },
     password: {
         type: String,
@@ -27,10 +33,10 @@ const userSchema = new Schema({
         type: String,
         default: "student"
     },
-    amountOwed : {
-      type: Number
+    amountOwed: {
+        type: Number
     },
-    planners : [
+    planners: [
         {
             type: Schema.Types.ObjectId,
             ref: "Planner"
@@ -38,7 +44,7 @@ const userSchema = new Schema({
     ]
 });
 
-userSchema.pre("save", async function save(next) {  
+userSchema.pre("save", async function save(next) {
     // only hash the password if it has been modified (or is new)
     if (!this.isModified("password")) {
         return next();
@@ -55,7 +61,7 @@ userSchema.pre("save", async function save(next) {
 });
 
 userSchema.methods.validatePassword = async function validatePassword(data) {
-    return bcrypt.compare(data, this.password); 
+    return bcrypt.compare(data, this.password);
 };
 
 const User = mongoose.model("User", userSchema);

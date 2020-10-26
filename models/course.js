@@ -12,6 +12,12 @@ const courseSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Professor"
   },
+  waitlist: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "User"
+    }
+  ],
   capacity: { type: Number, required: true },
   numberRegistered: { type: Number, required: true },
   finalDate: { type: Date, required: true },
