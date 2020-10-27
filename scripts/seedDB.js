@@ -17,7 +17,7 @@ const courseSeed = [
         professor: '1232afaw',
         capacity: 20,
         numberRegistered: 2,
-        finalDate: 2021/4/30,
+        finalDate: new Date(2021,02,22),
         status: 'Open',
         days: [
             'Monday',
@@ -40,7 +40,7 @@ const courseSeed = [
         professor: '1232afaw',
         capacity: 20,
         numberRegistered: 2,
-        finalDate: 2021/4/30,
+        finalDate: new Date(2021,02,22),
         status: 'Open',
         days: [
             'Monday',
@@ -63,7 +63,7 @@ const courseSeed = [
         professor: '1232afaw',
         capacity: 20,
         numberRegistered: 2,
-        finalDate: 2021/4/30,
+        finalDate: new Date(2021,02,22),
         status: 'Open',
         days: [
             'Monday',
@@ -86,7 +86,7 @@ const courseSeed = [
         professor: '1232afaw',
         capacity: 20,
         numberRegistered: 2,
-        finalDate: 2021/4/30,
+        finalDate: new Date(2021,02,22),
         status: 'Open',
         days: [
             'Monday',
@@ -109,7 +109,7 @@ const courseSeed = [
         professor: '1232afaw',
         capacity: 20,
         numberRegistered: 2,
-        finalDate: 2021/4/30,
+        finalDate: new Date(2021,02,22),
         status: 'Open',
         days: [
             'Monday',
@@ -132,7 +132,7 @@ const courseSeed = [
         professor: '1232afaw',
         capacity: 20,
         numberRegistered: 2,
-        finalDate: 2021/4/30,
+        finalDate: new Date(2021,02,22),
         status: 'Open',
         days: [
             'Monday',
@@ -155,15 +155,15 @@ const courseSeed = [
         professor: '1232afaw',
         capacity: 20,
         numberRegistered: 2,
-        finalDate: 2021/4/30,
+        finalDate: new Date(2021,02,22),
         status: 'Open',
         days: [
             'Monday',
             'Wednesday'
         ],
-        startTime: '8:00',
-        endTime: '10:00',
-        duration: '120',
+        startTime: '08:00',
+        endTime: '11:00',
+        duration: 120,
         ratings: [4, 5, 4, 4],
         usersRated: ['193j20', '028u3r2', '2082f82'],
         textbook: 'Design 101'
@@ -178,7 +178,7 @@ const courseSeed = [
         professor: '1232afaw',
         capacity: 20,
         numberRegistered: 2,
-        finalDate: 2021/4/30,
+        finalDate: new Date(2021,02,22),
         status: 'Open',
         days: [
             'Monday',
@@ -201,7 +201,7 @@ const courseSeed = [
         professor: '1232afaw',
         capacity: 20,
         numberRegistered: 2,
-        finalDate: 2021/4/30,
+        finalDate: new Date(2021,02,22),
         status: 'Open',
         days: [
             'Monday',
@@ -224,7 +224,7 @@ const courseSeed = [
         professor: '1232afaw',
         capacity: 20,
         numberRegistered: 2,
-        finalDate: 2021/4/30,
+        finalDate: new Date(2021,02,22),
         status: 'Open',
         days: [
             'Tuesday',
@@ -247,7 +247,7 @@ const courseSeed = [
         professor: '1232afaw',
         capacity: 20,
         numberRegistered: 2,
-        finalDate: 2021/4/30,
+        finalDate: new Date(2021,02,22),
         status: 'Open',
         days: [
             'Monday',
