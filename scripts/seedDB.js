@@ -6,6 +6,37 @@ mongoose.connect(
     'mongodb://localhost/coursescheduler'
 );
 
+const professorSeed = [
+    {
+        name: 'John Watson',
+        department: 'INF',
+        school: 'The School of Information',
+        office: 'UTA 5.326',
+        email: 'john.watson@ischool.utexas.edu',
+        courseLoad: 'Medium',
+        grading: 'Pass/fail allowed',
+        projects: 'Medium to heavy',
+        teachingPreference: 'Being on time',
+        organization: 'PowerPoint and discussion',
+        website: 'https://www.johnwatson.com/',
+        courses: ['jiowfijw2a', 'iwajifjwiejf', 'owiefowijefwioj']
+    },
+    {
+        name: 'Sarah Webber',
+        department: 'DES',
+        school: 'The School of Design',
+        office: 'UTA 3.102',
+        email: 'sarah.webber@ischool.utexas.edu',
+        courseLoad: 'Medium',
+        grading: 'Pass/fail allowed',
+        projects: 'Medium to heavy',
+        teachingPreference: 'Being on time',
+        organization: 'PowerPoint and discussion',
+        website: 'https://www.sarahwebber.com/',
+        courses: ['awbwaegwgw', 'iawoijwef']
+    }
+];
+
 const courseSeed = [
     {
         title: 'Technologies in Design Practice',
@@ -17,7 +48,7 @@ const courseSeed = [
         professor: '1232afaw',
         capacity: 20,
         numberRegistered: 2,
-        finalDate: new Date(2021,02,22),
+        finalDate: new Date(2021, 02, 22),
         status: 'Open',
         days: [
             'Monday',
@@ -40,7 +71,7 @@ const courseSeed = [
         professor: '1232afaw',
         capacity: 20,
         numberRegistered: 2,
-        finalDate: new Date(2021,02,22),
+        finalDate: new Date(2021, 02, 22),
         status: 'Open',
         days: [
             'Monday',
@@ -63,7 +94,7 @@ const courseSeed = [
         professor: '1232afaw',
         capacity: 20,
         numberRegistered: 2,
-        finalDate: new Date(2021,02,22),
+        finalDate: new Date(2021, 02, 22),
         status: 'Open',
         days: [
             'Monday',
@@ -86,7 +117,7 @@ const courseSeed = [
         professor: '1232afaw',
         capacity: 20,
         numberRegistered: 2,
-        finalDate: new Date(2021,02,22),
+        finalDate: new Date(2021, 02, 22),
         status: 'Open',
         days: [
             'Monday',
@@ -109,7 +140,7 @@ const courseSeed = [
         professor: '1232afaw',
         capacity: 20,
         numberRegistered: 2,
-        finalDate: new Date(2021,02,22),
+        finalDate: new Date(2021, 02, 22),
         status: 'Open',
         days: [
             'Monday',
@@ -132,7 +163,7 @@ const courseSeed = [
         professor: '1232afaw',
         capacity: 20,
         numberRegistered: 2,
-        finalDate: new Date(2021,02,22),
+        finalDate: new Date(2021, 02, 22),
         status: 'Open',
         days: [
             'Monday',
@@ -155,7 +186,7 @@ const courseSeed = [
         professor: '1232afaw',
         capacity: 20,
         numberRegistered: 2,
-        finalDate: new Date(2021,02,22),
+        finalDate: new Date(2021, 02, 22),
         status: 'Open',
         days: [
             'Monday',
@@ -178,7 +209,7 @@ const courseSeed = [
         professor: '1232afaw',
         capacity: 20,
         numberRegistered: 2,
-        finalDate: new Date(2021,02,22),
+        finalDate: new Date(2021, 02, 22),
         status: 'Open',
         days: [
             'Monday',
@@ -201,7 +232,7 @@ const courseSeed = [
         professor: '1232afaw',
         capacity: 20,
         numberRegistered: 2,
-        finalDate: new Date(2021,02,22),
+        finalDate: new Date(2021, 02, 22),
         status: 'Open',
         days: [
             'Monday',
@@ -224,7 +255,7 @@ const courseSeed = [
         professor: '1232afaw',
         capacity: 20,
         numberRegistered: 2,
-        finalDate: new Date(2021,02,22),
+        finalDate: new Date(2021, 02, 22),
         status: 'Open',
         days: [
             'Tuesday',
@@ -247,7 +278,7 @@ const courseSeed = [
         professor: '1232afaw',
         capacity: 20,
         numberRegistered: 2,
-        finalDate: new Date(2021,02,22),
+        finalDate: new Date(2021, 02, 22),
         status: 'Open',
         days: [
             'Monday',
@@ -265,6 +296,18 @@ const courseSeed = [
 db.Course
     .remove({})
     .then(() => db.Course.collection.insertMany(courseSeed))
+    .then(data => {
+        console.log(data.result.n + ' records inserted!');
+        process.exit(0);
+    })
+    .catch(err => {
+        console.error(err);
+        process.exit(1);
+    });
+
+db.Professor
+    .remove({})
+    .then(() => db.Professor.collection.insertMany(professorSeed))
     .then(data => {
         console.log(data.result.n + ' records inserted!');
         process.exit(0);
