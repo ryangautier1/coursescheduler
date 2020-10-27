@@ -3,7 +3,13 @@
 }
 
 .small-course-row:nth-child(odd) {
-  background: #bce0fd;
+  background: #2698fb;
   height: 75px;
-  color: #858789;
+  color: #fff;
+}
+
+.small-course-row:nth-child(even) {
+  background: #777;
+  height: 75px;
+  color: #fff;
 }
