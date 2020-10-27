@@ -49,16 +49,11 @@ function PlannerCalendarSmall() {
       endTime: "17:30",
       duration: 135
     }
-  ]
-
-  let mondayCourses = courses.filter(item => item.days.includes("M"));
-  let tuesdayCourses = courses.filter(item => item.days.includes("T"));
-  let wednesdayCourses = courses.filter(item => item.days.includes("W"));
-  let thursdayCourses = courses.filter(item => item.days.includes("TH"));
-  let fridayCourses = courses.filter(item => item.days.includes("F"));
+  ];
 
   const formatTimes = (course) => {
     let startTimeArr = course.startTime.split(":");
+    console.log(startTimeArr);
     let endTimeArr = course.endTime.split(":");
     // convert time to 12 hr format
     if (+startTimeArr[0] > 12) {
@@ -78,7 +73,13 @@ function PlannerCalendarSmall() {
     console.log(course);
   }
 
-  formatTimes(mondayCourses[0]);
+  courses.map(item => formatTimes(item));
+
+  let mondayCourses = courses.filter(item => item.days.includes("M"));
+  let tuesdayCourses = courses.filter(item => item.days.includes("T"));
+  let wednesdayCourses = courses.filter(item => item.days.includes("W"));
+  let thursdayCourses = courses.filter(item => item.days.includes("TH"));
+  let fridayCourses = courses.filter(item => item.days.includes("F"));
   
   return (
       <div className="planner-small-container">
