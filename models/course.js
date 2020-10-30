@@ -6,7 +6,7 @@ const courseSchema = new Schema({
   department: { type: String, required: true },
   courseNumber: { type: String, required: true },
   term: { type: String, required: true },
-  classCode: { type: Number, required: true },
+  classCode: { type: String, required: true },
   level: { type: String, required: true },
   professor: {
     type: Schema.Types.ObjectId,
