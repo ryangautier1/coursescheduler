@@ -60,6 +60,9 @@ function PlannerCalendarSmall() {
       startTimeArr[0] = +startTimeArr[0] - 12;
       course.startTime = startTimeArr.join(":") + " PM";
     }
+    else if (+startTimeArr[0] === 12) {
+      course.startTime = startTimeArr.join(":") + " PM";
+    }
     else {
       course.startTime = startTimeArr.join(":") + " AM";
     }
@@ -67,11 +70,13 @@ function PlannerCalendarSmall() {
       endTimeArr[0] = +endTimeArr[0] - 12;
       course.endTime = endTimeArr.join(":") + " PM";
     }
+    else if (+endTimeArr[0] === 12) {
+      course.endTime = endTimeArr.join(":") + " PM";
+    }
     else {
       course.endTime = endTimeArr.join(":") + " AM";
     }
-    console.log(course);
-  }
+  };
 
   courses.map(item => formatTimes(item));
 
@@ -80,60 +85,77 @@ function PlannerCalendarSmall() {
   let wednesdayCourses = courses.filter(item => item.days.includes("W"));
   let thursdayCourses = courses.filter(item => item.days.includes("TH"));
   let fridayCourses = courses.filter(item => item.days.includes("F"));
-  
+
   return (
-      <div className="planner-small-container">
+    <div className="planner-small-container">
+      <h6 className="position-relative small-day-heading">M</h6>
+      <div className="small-day">
         {mondayCourses.map(item => {
           return (
-            <div className="row small-course-row">
-              <h4 className="position-relative">{item.title}</h4>
-              <br />
-              <p className="position-relative">{item.name}</p>
-              <div className="position-relative">{item.startTime} - {item.endTime}</div>
-            </div>
-          )
-        })}
-        {tuesdayCourses.map(item => {
-          return (
-            <div className="row small-course-row">
-              <h4 className="position-relative">{item.title}</h4>
-              <br />
-              <p className="position-relative">{item.name}</p>
-              <div className="position-relative">{item.startTime} - {item.endTime}</div>
-            </div>
-          )
-        })}
-        {wednesdayCourses.map(item => {
-          return (
-            <div className="row small-course-row">
-              <h4 className="position-relative">{item.title}</h4>
-              <br />
-              <p className="position-relative">{item.name}</p>
-              <div className="position-relative">{item.startTime} - {item.endTime}</div>
-            </div>
-          )
-        })}
-        {thursdayCourses.map(item => {
-          return (
-            <div className="row small-course-row">
-              <h4 className="position-relative">{item.title}</h4>
-              <br />
-              <p className="position-relative">{item.name}</p>
-              <div className="position-relative">{item.startTime} - {item.endTime}</div>
-            </div>
-          )
-        })}
-        {fridayCourses.map(item => {
-          return (
-            <div className="row small-course-row">
-              <h4 className="position-relative">{item.title}</h4>
-              <br />
-              <p className="position-relative">{item.name}</p>
-              <div className="position-relative">{item.startTime} - {item.endTime}</div>
+            <div className="row small-course-row" key={item.id + "m"}>
+              <div className="col">
+                <h4>{item.title}</h4>
+                <br />
+                <p>{item.name}</p>
+                <div>{item.startTime} - {item.endTime}</div>
+              </div>
             </div>
           )
         })}
       </div>
+      <h6 className="position-relative small-day-heading">T</h6>
+      <div className="small-day">
+        {tuesdayCourses.map(item => {
+          return (
+            <div className="row small-course-row" key={item.id + "t"}>
+              <h4>{item.title}</h4>
+              <br />
+              <p>{item.name}</p>
+              <div>{item.startTime} - {item.endTime}</div>
+            </div>
+          )
+        })}
+      </div>
+      <h6 className="position-relative small-day-heading">W</h6>
+      <div className="small-day">
+        {wednesdayCourses.map(item => {
+          return (
+            <div className="row small-course-row" key={item.id + "w"}>
+              <h4>{item.title}</h4>
+              <br />
+              <p>{item.name}</p>
+              <div>{item.startTime} - {item.endTime}</div>
+            </div>
+          )
+        })}
+      </div>
+      <h6 className="position-relative small-day-heading">TH</h6>
+      <div className="small-day">
+        {thursdayCourses.map(item => {
+          return (
+            <div className="row small-course-row" key={item.id + "th"}>
+              <h4>{item.title}</h4>
+              <br />
+              <p>{item.name}</p>
+              <div>{item.startTime} - {item.endTime}</div>
+            </div>
+          )
+        })}
+      </div>
+      <h6 className="position-relative small-day-heading">F</h6>
+      <div className="small-day">
+        {fridayCourses.map(item => {
+          return (
+            <div className="row small-course-row" key={item.id + "f"}>
+              <h4>{item.title}</h4>
+              <br />
+              <p>{item.name}</p>
+              <div>{item.startTime} - {item.endTime}</div>
+            </div>
+          )
+        })}
+      </div>
+    </div>
   )
 }
 

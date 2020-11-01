@@ -39,7 +39,7 @@ function Planner() {
   // 
 
   // update screen width on resize
-  useEffect(() => { setScreenState(window.innerWidth) }, window.innerWidth);
+  useEffect(() => { setScreenState(window.innerWidth) }, [window.innerWidth]);
 
   return (
     <div>
