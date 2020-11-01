@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import ClassCard from '../../components/ClassCard';
 import './home.css';
 
 function Home(props) {
   const { name } = props;
+  const [selectState, setSelectState] = useState("DES");
 
   return (
     <div className="search-page-container text-center font-weight-bold">
@@ -16,11 +17,11 @@ function Home(props) {
         <div className="input-group mb-2 mr-sm-2 my-4 form-row">
           <div className="input-group-prepend">
             <div>
-              <select className="custom-select my-select" defaultValue={"ACC"}>
-                <option value="ACC">ACC</option>
-                <option value="BCH">BCH</option>
-                <option value="CHE">CHE</option>
-                <option value="CSE">CSE</option>
+              <select className="custom-select my-select"
+              onChange={(e) => {setSelectState(e.target.value)}}
+              value={selectState}>
+                <option value="DES">DES</option>
+                <option value="INF">INF</option>
               </select>
             </div>
           </div>
