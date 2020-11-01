@@ -1,11 +1,17 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import ClassCard from '../../components/ClassCard';
+import API from '../../utils/API';
 import './home.css';
 
 function Home(props) {
   const { name } = props;
   const [selectState, setSelectState] = useState("DES");
+
+  // on selectState change, load 4 classes with that department
+  useEffect(() => {
+    API.findCoursesByDepartment(4, selectState).then(res => console.log(res));
+  }, [selectState])
 
   return (
     <div className="search-page-container text-center font-weight-bold">

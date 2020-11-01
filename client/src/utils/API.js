@@ -9,5 +9,9 @@ export default {
     },
     fetchUser: function () {
         return axios.get('/api/user-login/user_data');
+    },
+    findCoursesByDepartment: function (limit, department) {
+        let queryString = '?limit=' + limit + "&department=" + department
+        return axios.get('/api/course' + queryString);
     }
 };
