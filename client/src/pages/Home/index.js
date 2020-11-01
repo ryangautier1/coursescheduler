@@ -7,10 +7,12 @@ import './home.css';
 function Home(props) {
   const { name } = props;
   const [selectState, setSelectState] = useState("DES");
+  const [courseCardState, setCourseCardState] = useState([]);
 
   // on selectState change, load 4 classes with that department
   useEffect(() => {
-    API.findCoursesByDepartment(4, selectState).then(res => console.log(res));
+    API.findCoursesByDepartment(4, selectState)
+    .then(res => setCourseCardState(res.data));
   }, [selectState])
 
   return (
@@ -41,10 +43,9 @@ function Home(props) {
       <h5 className="suggested">Suggested Courses</h5>
 
       <div className="d-flex flex-wrap justify-content-around">
-        <ClassCard />
-        <ClassCard />
-        <ClassCard />
-        <ClassCard />
+        {courseCardState.map(item => (
+          <ClassCard title={item.title} department={item.department} courseNumber={item.courseNumber} key={item.id} />
+        ))}
       </div>
 
 
