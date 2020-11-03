@@ -10,7 +10,7 @@ function UserProvider(props) {
     const [user, setUser] = useState({
         isLoggedIn: false,
         info: {}
-    })
+    });
 
     // Signup & Login
     const [name, setName] = useState('');
@@ -34,6 +34,7 @@ function UserProvider(props) {
                         .then(res => {
                             // Send user thru login process into profile or dashboard page
                             console.log('User is signed up...', res);
+                            window.location.replace("/");
                         })
                         .catch(err => {
                             console.log('Failed signup...', err);
@@ -61,7 +62,9 @@ function UserProvider(props) {
                 })
                 .then(() => {
                     // Send user to profile or dashboard
-                    console.log('User is now logged in.')
+                    fetchUser();
+                    console.log('User is now logged in.');
+                    window.location.replace("/");
                 })
                 .catch(err => {
                     console.log('Something went wrong while logging in...', err);
@@ -73,7 +76,7 @@ function UserProvider(props) {
 
     // User Data
     function fetchUser() {
-        API
+        API.fetchUser()
             .then(res => {
                 setUser({
                     isLoggedIn: true,
@@ -101,7 +104,8 @@ function UserProvider(props) {
                 setConfirmPassword,
                 handleSignup,
                 handleLogin,
-                user
+                user,
+                fetchUser
             }}
         >
             {props.children}
