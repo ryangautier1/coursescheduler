@@ -43,7 +43,7 @@ function CourseProvider(props) {
                 // Sort based on department
                 const sorted = departments.sort();
                 // Filter courses by first course on the list
-                const initialCourses = courses.filter(course => course.department === sorted[0]);
+                const initialCourses = filterByDepartment(courses, sorted[0]);
                 // Take first department as default search department
                 // Set dropdown courses to ones in this department
                 setSearch({
@@ -51,6 +51,7 @@ function CourseProvider(props) {
                     department: sorted[0],
                     courses: initialCourses
                 });
+                console.log('Courses', initialCourses)
             })
             .catch(err => console.error(err));
     };
@@ -59,6 +60,17 @@ function CourseProvider(props) {
     function filterBySearch(title) {
         const filtered = courses.filter(course => course.title === title);
         setSearchResults(filtered);
+    };
+
+    // Filter courses by department
+    function filterByDepartment(courses, department) {
+        const filtered = courses.filter(course => course.department === department);
+        setSearch({
+            ...search,
+            department: department,
+            courses: filtered
+        });
+        return filtered;
     };
 
     return (
