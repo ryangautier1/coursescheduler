@@ -6,11 +6,15 @@ const CourseContext = React.createContext();
 // Provider
 function CourseProvider(props) {
 
+    // Courses list
     const [courses, setCourses] = useState([]);
+
+    // Search results
+    const [searchResults, setSearchResults] = useState([]);
 
     useEffect(() => {
         fetchCourses();
-    }, [])
+    }, []);
 
     // Fetch all courses
     function fetchCourses() {
@@ -23,10 +27,16 @@ function CourseProvider(props) {
             .catch(err => console.error(err));
     };
 
+    // Filter courses by search
+    function filterBySearch(title) {
+        const filtered = courses.filter(course => course.title === title);
+        setSearchResults(filtered);
+    };
+
     return (
         <CourseContext.Provider
             value={{
-
+                filterBySearch
             }}
         >
             {props.children}
