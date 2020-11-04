@@ -9,6 +9,13 @@ function CourseProvider(props) {
     // Courses list
     const [courses, setCourses] = useState([]);
 
+    // Search query
+    const [search, setSearch] = useState({
+        departments: [],
+        department: '',
+        courses: []
+    });
+
     // Search results
     const [searchResults, setSearchResults] = useState([]);
 
@@ -21,8 +28,29 @@ function CourseProvider(props) {
         API
             .fetchCourses()
             .then(res => {
-                setCourses(res.data);
+                const courses = res.data;
+                setCourses(courses);
                 console.log(res.data);
+
+                // Loop through result
+                const departments = [];
+                for (let i = 0; i < courses.length; i++) {
+                    let currentCourse = courses[i];
+                    if (departments.indexOf(currentCourse.department) < 0) {
+                        departments.push(currentCourse.department);
+                    }
+                };
+                // Sort based on department
+                const sorted = departments.sort();
+                // Filter courses by first course on the list
+                const initialCourses = courses.filter(course => course.department === sorted[0]);
+                // Take first department as default search department
+                // Set dropdown courses to ones in this department
+                setSearch({
+                    departments: sorted,
+                    department: sorted[0],
+                    courses: initialCourses
+                });
             })
             .catch(err => console.error(err));
     };
@@ -37,7 +65,8 @@ function CourseProvider(props) {
         <CourseContext.Provider
             value={{
                 filterBySearch,
-                searchResults
+                searchResults,
+                search
             }}
         >
             {props.children}
