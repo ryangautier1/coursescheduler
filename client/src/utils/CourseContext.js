@@ -36,7 +36,8 @@ function CourseProvider(props) {
     return (
         <CourseContext.Provider
             value={{
-                filterBySearch
+                filterBySearch,
+                searchResults
             }}
         >
             {props.children}
