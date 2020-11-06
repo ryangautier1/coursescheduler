@@ -10,36 +10,39 @@ import Signup from './pages/Signup/index';
 import Login from './pages/Login/index';
 import Register from './pages/Register';
 import { UserProvider } from './utils/UserContext';
+import { CourseProvider } from './utils/CourseContext';
 
 function App() {
   return (
     <UserProvider>
-      <Router>
-        <Navbar />
-        <Switch>
-          <Route exact path='/'>
-            <Home name={"Joe Smith"} />
-          </Route>
-          <Route path='/signup'>
-            <Signup />
-          </Route>
-          <Route path='/login'>
-            <Login />
-          </Route>
-          <Route path='/search-results'>
-            <SearchResults />
-          </Route>
-          <Route path='/course-detail'>
-            <CourseDetail />
-          </Route>
-          <Route path='/instructor-detail'>
-            <InstructorDetail />
-          </Route>
-          <Route path='/register'>
-            <Register />
-          </Route>
-        </Switch>
-      </Router>
+      <CourseProvider>
+        <Router>
+          <Navbar />
+          <Switch>
+            <Route exact path='/'>
+              <Home name={"Joe Smith"} />
+            </Route>
+            <Route path='/signup'>
+              <Signup />
+            </Route>
+            <Route path='/login'>
+              <Login />
+            </Route>
+            <Route path='/search-results'>
+              <SearchResults />
+            </Route>
+            <Route path='/course-detail'>
+              <CourseDetail />
+            </Route>
+            <Route path='/instructor-detail'>
+              <InstructorDetail />
+            </Route>
+            <Route path='/register'>
+              <Register />
+            </Route>
+          </Switch>
+        </Router>
+      </CourseProvider>
     </UserProvider>
   );
 }

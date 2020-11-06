@@ -9,5 +9,8 @@ export default {
     },
     fetchUser: function () {
         return axios.get('/api/user-login/user_data');
+    },
+    fetchCourses: function () {
+        return axios.get('/api/course');
     }
 };
