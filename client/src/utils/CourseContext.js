@@ -63,7 +63,7 @@ function CourseProvider(props) {
     };
 
     // Filter courses by department
-    function filterByDepartment(courses, department) {
+    function filterByDepartment(department) {
         const filtered = courses.filter(course => course.department === department);
         setSearch({
             ...search,
@@ -77,6 +77,7 @@ function CourseProvider(props) {
         <CourseContext.Provider
             value={{
                 filterBySearch,
+                filterByDepartment,
                 searchResults,
                 search
             }}
