@@ -8,7 +8,6 @@ export default function ResultsList() {
         {
             status: 'open',
             title: 'virtual environment',
-            school: 'inf',
             department: 'na',
             term: '2019 fall',
             instructor: 'john watson',
@@ -20,7 +19,6 @@ export default function ResultsList() {
         {
             status: 'reserved',
             title: 'graphic design',
-            school: 'inf',
             department: 'na',
             term: '2019 fall',
             instructor: 'john watson',
@@ -32,7 +30,6 @@ export default function ResultsList() {
         {
             status: 'open',
             title: 'web design',
-            school: 'inf',
             department: 'na',
             term: '2019 fall',
             instructor: 'john watson',
@@ -67,7 +64,6 @@ export default function ResultsList() {
                                     key={item.title}
                                     status={item.status}
                                     title={item.title}
-                                    school={item.school}
                                     depart={item.department}
                                     term={item.term}
                                     instructor={item.instructor}

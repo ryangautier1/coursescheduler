@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './resultItem.css';
 
-export default function ResultItem({ status, title, school, depart, term, instructor, time }) {
+export default function ResultItem({ status, title, depart, term, instructor, time }) {
     return (
         <Link to='/course-detail'>
             <table className='table item-table'>
@@ -10,7 +10,6 @@ export default function ResultItem({ status, title, school, depart, term, instru
                     <tr>
                         <th scope='col'>Status</th>
                         <th scope='col'>Course Title</th>
-                        <th scope='col'>School</th>
                         <th scope='col'>Depart.</th>
                         <th scope='col'>Term</th>
                         <th scope='col'>Instructor</th>
@@ -21,7 +20,6 @@ export default function ResultItem({ status, title, school, depart, term, instru
                     <tr className='item-data'>
                         <td className='status'><i className={`${status} fas fa-circle`} /></td>
                         <td className='title'>{title}</td>
-                        <td className='school'>{school}</td>
                         <td className='depart'>{depart}</td>
                         <td className='term'>{term}</td>
                         <td className='instructor'>{instructor}</td>
@@ -39,7 +37,7 @@ export default function ResultItem({ status, title, school, depart, term, instru
                         </td>
                     </tr>
                     <tr className='item-note'>
-                        <td colSpan='7'>
+                        <td colSpan='6'>
                             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.
                     </td>
                     </tr>
