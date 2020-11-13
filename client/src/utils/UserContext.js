@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import API from './API';
 
 const UserContext = React.createContext();
 
 // Provider
 function UserProvider(props) {
+
+    useEffect(() => {
+        fetchUser();
+    }, []);
 
     // User
     const [user, setUser] = useState({

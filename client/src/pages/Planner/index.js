@@ -4,14 +4,17 @@ import PlannerList from '../../components/PlannerList';
 import PlannerCalendar from '../../components/PlannerCalendar';
 import PlannerCalendarSmall from '../../components/PlannerCalendarSmall';
 import PlannerMap from '../../components/PlannerMap';
+import UserContext, { UserConsumer } from '../../utils/UserContext';
 import './planner.css';
 
 function Planner() {
   const [plannerTabState, setPlannerTabState] = useState("list");
   const [screenState, setScreenState] = useState(window.innerWidth);
+  const [planners, setPlanners] = useState(["one", "two", "three"]);
+  const [plannerCourses, setPlannerCourses] = useState();
 
   // 
-  const planners = ["one", "two", "three"];
+  // const planners = ["one", "two", "three"];
   const semester = "Spring 2021"
   const courses = [
     {
@@ -39,7 +42,7 @@ function Planner() {
   // 
 
   // update screen width on resize
-  useEffect(() => { setScreenState(window.innerWidth) }, [window.innerWidth]);
+  // useEffect(() => { setScreenState(window.innerWidth) }, [window.innerWidth]);
 
   return (
     <div>

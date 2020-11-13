@@ -1,23 +1,14 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ClassCard from '../../components/ClassCard';
 import API from '../../utils/API';
 import UserContext, { UserConsumer } from '../../utils/UserContext';
+import CourseContext, { CourseConsumer } from '../../utils/CourseContext';
 import './home.css';
 
 function Home() {
-  const { fetchUser } = useContext(UserContext);
-  const [selectState, setSelectState] = useState("DES");
-  // course state will be an array of courses that is mapped to produce course cards
-  const [courseCardState, setCourseCardState] = useState([]);
-
-  // on selectState change, load 4 classes with that department
-  useEffect(() => {
-    API.findCoursesByDepartment(4, selectState)
-    .then(res => setCourseCardState(res.data));
-  }, [selectState]);
-
-  useEffect(() => {fetchUser()})
+  const [selectState, setSelectState] = useState();
+  const [courseState, setCourseState] = useState()
 
   return (
     <div className="search-page-container text-center font-weight-bold">
@@ -36,33 +27,57 @@ function Home() {
         }
       </UserConsumer>
 
-      <form>
-        <div className="input-group mb-2 mr-sm-2 my-4 form-row">
-          <div className="input-group-prepend">
-            <div>
-              <select className="custom-select my-select"
-              onChange={(e) => {setSelectState(e.target.value)}}
-              value={selectState}>
-                <option value="DES">DES</option>
-                <option value="INF">INF</option>
-              </select>
+        <form>
+          <div className="input-group mb-2 mr-sm-2 my-4 form-row">
+            <div className="input-group-prepend">
+              <div>
+                <select className="custom-select my-select"
+                  onChange={(e) => { setSelectState(e.target.value) }}
+                  value={selectState}>
+                <CourseConsumer>
+                  {value => {
+                    return (
+                      value.search.departments.map(item => {
+                        return (<option value={item} key={item}>{item}</option>)
+                      }))
+                  }}
+                  </CourseConsumer>
+                </select>
+              </div>
             </div>
+            <select className="custom-select my-select"
+              onChange={(e) => { setCourseState(e.target.value) }}
+              value={courseState}>
+                <CourseConsumer>
+              {value => {
+                return (
+                  value.search.courses.map(item => {
+                    return (<option value={item.classCode} key={item.classCode}>{item.courseNumber} {item.title}</option>)
+                  }))
+              }}
+              </CourseConsumer>
+            </select>
+            <Link to="/search-results">
+              <button className="btn btn-primary ml-4 my-search-btn" >SEARCH</button>
+            </Link>
           </div>
-          <input type="text" className="form-control my-serach-field" placeholder="Search for a class..." />
-          <Link to="/search-results">
-            <button className="btn btn-primary ml-4 my-search-btn" >SEARCH</button>
-          </Link>
+
+        </form>
+
+        <h5 className="suggested">Suggested Courses</h5>
+
+        <div className="d-flex flex-wrap justify-content-around">
+          <CourseConsumer>
+          {value => {
+            return (
+              value.search.courses.slice(0, 4).map(item => {
+                return (
+                  <ClassCard title={item.title} department={item.department} courseNumber={item.courseNumber} key={item.id} />
+                )
+              }))
+          }}
+          </CourseConsumer>
         </div>
-      </form>
-
-      <h5 className="suggested">Suggested Courses</h5>
-
-      <div className="d-flex flex-wrap justify-content-around">
-        {courseCardState.map(item => (
-          <ClassCard title={item.title} department={item.department} courseNumber={item.courseNumber} key={item.id} />
-        ))}
-      </div>
-
 
     </div>
   )

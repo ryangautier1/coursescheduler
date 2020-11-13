@@ -23,6 +23,12 @@ function App() {
             <Route exact path='/'>
               <Home name={"Joe Smith"} />
             </Route>
+            <Route exact path="/dashboard">
+              <Dashboard />
+            </Route>
+            <Route exact path="/planner">
+              <Planner />
+            </Route>
             <Route path='/signup'>
               <Signup />
             </Route>
