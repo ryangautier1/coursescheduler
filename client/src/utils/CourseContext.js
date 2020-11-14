@@ -80,6 +80,7 @@ function CourseProvider(props) {
                 filterByDepartment,
                 searchResults,
                 search,
+                courses,
                 fetchCourses
             }}
         >

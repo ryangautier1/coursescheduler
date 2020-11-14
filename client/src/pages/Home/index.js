@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import ClassCard from '../../components/ClassCard';
 import API from '../../utils/API';
@@ -8,7 +8,9 @@ import './home.css';
 
 function Home() {
   const [selectState, setSelectState] = useState();
-  const [courseState, setCourseState] = useState()
+  const selectRef = useRef();
+
+  const { filterByDepartment, courses } = useContext(CourseContext);
 
   return (
     <div className="search-page-container text-center font-weight-bold">
@@ -32,34 +34,38 @@ function Home() {
             <div className="input-group-prepend">
               <div>
                 <select className="custom-select my-select"
-                  onChange={(e) => { setSelectState(e.target.value) }}
+                  onChange={(e) => { filterByDepartment(courses, e.target.value) }}
                   value={selectState}>
-                <CourseConsumer>
+                  <CourseConsumer>
                   {value => {
                     return (
                       value.search.departments.map(item => {
                         return (<option value={item} key={item}>{item}</option>)
                       }))
                   }}
-                  </CourseConsumer>
+                </CourseConsumer>
                 </select>
               </div>
             </div>
             <select className="custom-select my-select"
-              onChange={(e) => { setCourseState(e.target.value) }}
-              value={courseState}>
+              ref={selectRef} >
                 <CourseConsumer>
               {value => {
                 return (
                   value.search.courses.map(item => {
-                    return (<option value={item.classCode} key={item.classCode}>{item.courseNumber} {item.title}</option>)
+                    return (<option value={item.title} key={item.classCode}>{item.courseNumber} {item.title}</option>)
                   }))
               }}
               </CourseConsumer>
             </select>
-            <Link to="/search-results">
-              <button className="btn btn-primary ml-4 my-search-btn" >SEARCH</button>
-            </Link>
+            {/* <Link to="/search-results"> */}
+              <button className="btn btn-primary ml-4 my-search-btn" 
+              onClick={(e) => {
+                e.preventDefault();
+                console.log(selectRef.current.value);
+                }} >
+              SEARCH</button>
+            {/* </Link> */}
           </div>
 
         </form>
