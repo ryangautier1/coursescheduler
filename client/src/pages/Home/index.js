@@ -1,13 +1,12 @@
-import React, { useContext, useEffect, useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState, useRef } from 'react';
+// import { Link } from 'react-router-dom';
 import ClassCard from '../../components/ClassCard';
-import API from '../../utils/API';
-import UserContext, { UserConsumer } from '../../utils/UserContext';
+// import API from '../../utils/API';
+import { UserConsumer } from '../../utils/UserContext';
 import CourseContext, { CourseConsumer } from '../../utils/CourseContext';
 import './home.css';
 
 function Home() {
-  const [selectState, setSelectState] = useState();
   const selectRef = useRef();
 
   const { filterByDepartment, courses } = useContext(CourseContext);
@@ -35,7 +34,7 @@ function Home() {
               <div>
                 <select className="custom-select my-select"
                   onChange={(e) => { filterByDepartment(courses, e.target.value) }}
-                  value={selectState}>
+                  >
                   <CourseConsumer>
                   {value => {
                     return (
@@ -78,7 +77,7 @@ function Home() {
             return (
               value.search.courses.slice(0, 4).map(item => {
                 return (
-                  <ClassCard title={item.title} department={item.department} courseNumber={item.courseNumber} key={item.id} />
+                  <ClassCard title={item.title} department={item.department} courseNumber={item.courseNumber} key={item._id} />
                 )
               }))
           }}
