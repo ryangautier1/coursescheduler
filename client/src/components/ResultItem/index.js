@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './resultItem.css';
 
-export default function ResultItem({ status, title, depart, term, instructor, time }) {
+export default function ResultItem({ status, title, courseNum, depart, term, professor, days, startTime, endTime }) {
     return (
         <Link to='/course-detail'>
             <table className='table item-table'>
@@ -19,21 +19,21 @@ export default function ResultItem({ status, title, depart, term, instructor, ti
                 <tbody>
                     <tr className='item-data'>
                         <td className='status'><i className={`${status} fas fa-circle`} /></td>
-                        <td className='title'>{title}</td>
+                        <td className='title'>{courseNum} {title}</td>
                         <td className='depart'>{depart}</td>
                         <td className='term'>{term}</td>
-                        <td className='instructor'>{instructor}</td>
+                        <td className='instructor'>{professor}</td>
                         <td className='time d-flex flex-column align-items-center'>
                             <div className='time-days d-flex'>
-                                <span className={time.days.includes('sunday') ? 'selected' : ''}>S</span>
-                                <span className={time.days.includes('monday') ? 'selected' : ''}>M</span>
-                                <span className={time.days.includes('tuesday') ? 'selected' : ''}>T</span>
-                                <span className={time.days.includes('wednesday') ? 'selected' : ''}>W</span>
-                                <span className={time.days.includes('thursday') ? 'selected' : ''}>Th</span>
-                                <span className={time.days.includes('friday') ? 'selected' : ''}>F</span>
-                                <span className={time.days.includes('saturday') ? 'selected' : ''}>S</span>
+                                <span className={days.includes('Sunday') ? 'selected' : ''}>S</span>
+                                <span className={days.includes('Monday') ? 'selected' : ''}>M</span>
+                                <span className={days.includes('Tuesday') ? 'selected' : ''}>T</span>
+                                <span className={days.includes('Wednesday') ? 'selected' : ''}>W</span>
+                                <span className={days.includes('Thursday') ? 'selected' : ''}>Th</span>
+                                <span className={days.includes('Friday') ? 'selected' : ''}>F</span>
+                                <span className={days.includes('Saturday') ? 'selected' : ''}>S</span>
                             </div>
-                            <div className='time-time'>{time.hours}</div>
+                            <div className='time-time'>{startTime}-{endTime}</div>
                         </td>
                     </tr>
                     <tr className='item-note'>
