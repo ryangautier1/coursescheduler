@@ -1,15 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PlannerAside from '../../components/PlannerAside';
 import PlannerList from '../../components/PlannerList';
 import PlannerCalendar from '../../components/PlannerCalendar';
+import PlannerCalendarSmall from '../../components/PlannerCalendarSmall';
 import PlannerMap from '../../components/PlannerMap';
+import UserContext, { UserConsumer } from '../../utils/UserContext';
 import './planner.css';
 
 function Planner() {
   const [plannerTabState, setPlannerTabState] = useState("list");
+  const [screenState, setScreenState] = useState(window.innerWidth);
+  const [planners, setPlanners] = useState(["one", "two", "three"]);
+  const [plannerCourses, setPlannerCourses] = useState();
 
   // 
-  const planners = ["one", "two", "three"];
+  // const planners = ["one", "two", "three"];
   const semester = "Spring 2021"
   const courses = [
     {
@@ -36,20 +41,24 @@ function Planner() {
   ]
   // 
 
+  // update screen width on resize
+  // useEffect(() => { setScreenState(window.innerWidth) }, [window.innerWidth]);
+
   return (
     <div>
       <PlannerAside planners={planners} semester={semester} />
       <div className="planner-container">
         <div className="d-flex flex-row planner-tabs">
-          <i className="fas fa-bars" onClick={() => {setPlannerTabState("list")}}></i>
-          <i className="far fa-calendar" onClick={() => {setPlannerTabState("calendar")}}></i>
-          <i className="fas fa-map" onClick={() => {setPlannerTabState("map")}}></i>
+          <i className="fas fa-bars" onClick={() => { setPlannerTabState("list") }}></i>
+          <i className="far fa-calendar" onClick={() => { setPlannerTabState("calendar") }}></i>
+          <i className="fas fa-map" onClick={() => { setPlannerTabState("map") }}></i>
         </div>
         {plannerTabState === "list" ?
-          <PlannerList courses={courses}/>
+          <PlannerList courses={courses} />
           : null}
         {plannerTabState === "calendar" ?
-          <PlannerCalendar />
+          screenState > 780 ? <PlannerCalendar />
+            : <PlannerCalendarSmall />
           : null}
         {plannerTabState === "map" ?
           <PlannerMap />

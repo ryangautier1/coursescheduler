@@ -4,7 +4,7 @@ const courseController = require('../../controllers/courseController');
 // Match with /api/course
 router
     .route("/")
-    .get(courseController.findAll)
+    .get(courseController.findCourses)
     .post(courseController.create);
 
 // Match with /api/course/:id

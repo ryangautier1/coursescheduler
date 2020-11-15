@@ -1,0 +1,27 @@
+.planner-small-container {
+  padding-top: 3rem;
+}
+
+.small-course-row:nth-child(odd) {
+  background: #2698fb;
+  height: 125px;
+  color: #fff;
+}
+
+.small-course-row:nth-child(even) {
+  background: #777;
+  height: 125px;
+  color: #fff;
+}
+
+.small-day {
+  max-width: 450px;
+  padding-left: 50px;
+  border-top: 1px solid #175d9b;
+}
+
+.small-day-heading {
+  position: relative;
+  top: 30px;
+  left: 0;
+}
