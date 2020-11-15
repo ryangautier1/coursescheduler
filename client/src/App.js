@@ -9,6 +9,7 @@ import InstructorDetail from './pages/InstructorDetail/index';
 import Signup from './pages/Signup/index';
 import Login from './pages/Login/index';
 import Register from './pages/Register';
+import Dashboard from './pages/Dashboard';
 import { UserProvider } from './utils/UserContext';
 import { CourseProvider } from './utils/CourseContext';
 
@@ -21,6 +22,12 @@ function App() {
           <Switch>
             <Route exact path='/'>
               <Home name={"Joe Smith"} />
+            </Route>
+            <Route exact path="/dashboard">
+              <Dashboard />
+            </Route>
+            <Route exact path="/planner">
+              <Planner />
             </Route>
             <Route path='/signup'>
               <Signup />

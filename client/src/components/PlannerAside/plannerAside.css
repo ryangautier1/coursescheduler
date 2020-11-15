@@ -85,12 +85,12 @@ h6 {
   .planner-side {
     background: unset;
     height: unset;
-    position: fixed;
-    left: 2rem;
-    top: 6.5rem;
+    position: relative;
+    margin-left: 2rem;
+    top: 5.3rem;
     width: unset;
     padding: 0;
-    z-index: 20;
+    z-index: 0;
   }
   h6 {
     color: #009bff;

@@ -63,7 +63,7 @@ function CourseProvider(props) {
     };
 
     // Filter courses by department
-    function filterByDepartment(department) {
+    function filterByDepartment(courses, department) {
         const filtered = courses.filter(course => course.department === department);
         setSearch({
             ...search,
@@ -79,7 +79,9 @@ function CourseProvider(props) {
                 filterBySearch,
                 filterByDepartment,
                 searchResults,
-                search
+                search,
+                courses,
+                fetchCourses
             }}
         >
             {props.children}

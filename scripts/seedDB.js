@@ -293,26 +293,46 @@ const courseSeed = [
     }
 ];
 
-db.Course
-    .remove({})
-    .then(() => db.Course.collection.insertMany(courseSeed))
-    .then(data => {
-        console.log(data.result.n + ' records inserted!');
-        process.exit(0);
-    })
-    .catch(err => {
-        console.error(err);
-        process.exit(1);
-    });
+const plannerSeed = [
+    {
+        title: "Planner One"
+    },
+    {
+        title: "Planner Two"
+    }
+]
 
-db.Professor
+// db.Course
+//     .remove({})
+//     .then(() => db.Course.collection.insertMany(courseSeed))
+//     .then(data => {
+//         console.log(data.result.n + ' records inserted!');
+//         process.exit(0);
+//     })
+//     .catch(err => {
+//         console.error(err);
+//         process.exit(1);
+//     });
+
+// db.Professor
+//     .remove({})
+//     .then(() => db.Professor.collection.insertMany(professorSeed))
+//     .then(data => {
+//         console.log(data.result.n + ' records inserted!');
+//         process.exit(0);
+//     })
+//     .catch(err => {
+//         console.error(err);
+//         process.exit(1);
+//     });
+
+db.Planner
     .remove({})
-    .then(() => db.Professor.collection.insertMany(professorSeed))
+    .then(() => db.Planner.collection.insertMany(plannerSeed))
     .then(data => {
         console.log(data.result.n + ' records inserted!');
-        process.exit(0);
     })
     .catch(err => {
-        console.error(err);
+        console.log(err);
         process.exit(1);
     });
