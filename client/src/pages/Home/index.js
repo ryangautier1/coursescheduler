@@ -9,7 +9,7 @@ import './home.css';
 function Home() {
   const selectRef = useRef();
 
-  const { filterByDepartment, courses } = useContext(CourseContext);
+  const { filterByDepartment, courses, filterBySearch } = useContext(CourseContext);
 
   return (
     <div className="search-page-container text-center font-weight-bold">
@@ -62,6 +62,7 @@ function Home() {
               onClick={(e) => {
                 e.preventDefault();
                 console.log(selectRef.current.value);
+                filterBySearch(selectRef.current.value);
                 }} >
               SEARCH</button>
             {/* </Link> */}
