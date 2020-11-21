@@ -13,23 +13,23 @@
   border-radius: 2px;
 }
 
-i {
+.planner-tabs-item {
   padding: 0.5rem;
   background-color: #2699fb;
   cursor: pointer;
 }
 
-i:nth-child(1) {
+.planner-tabs-item:nth-child(1) {
   border-radius: 2px 0 0 2px;
   border-right: 1px #58a8ee solid;
 }
 
-i:nth-child(3) {
+.planner-tabs-item:nth-child(3) {
   border-radius: 0 2px 2px 0;
   border-left: 1px #58a8ee solid;
 }
 
-i:hover {
+.planner-tabs-item:hover {
   background-color: #2381d3;
 }
 
