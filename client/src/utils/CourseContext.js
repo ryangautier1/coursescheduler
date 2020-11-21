@@ -23,6 +23,9 @@ function CourseProvider(props) {
     // Search results
     const [searchResults, setSearchResults] = useState(localStorageResults || []);
 
+    // Filter data
+    const [filterData, setFilterData] = useState([]);
+
     useEffect(() => {
         fetchCourses();
     }, []);
@@ -70,6 +73,32 @@ function CourseProvider(props) {
         setSearchResults(filtered);
         // Store filtered into local storage
         localStorage.setItem("results", JSON.stringify(filtered));
+
+        // Populate filter data
+        const tempFilterData = [
+            // { title: '', count: 0, items: {} }
+            // { title: 'school', count: 1, items: {} },
+            // { title: 'department', count: 1, items: {} },
+            { title: 'level', count: 0, items: {}},
+            { title: 'term', count: 0, items: {} },
+            { title: 'status', count: 0, items: {} },
+            // { title: 'days', count: 0, items: {} },
+            { title: 'professor', count: 0, items: {} }
+        ];
+        tempFilterData.forEach(filter => {
+            const currentFilterTitle = filter.title;
+            // Create items obj for each that counts all the different categories
+            filter.items = filtered.reduce((obj, item) => {
+                if (!obj[item[currentFilterTitle]]) {
+                    obj[item[currentFilterTitle]] = 0;
+                }
+                obj[item[currentFilterTitle]]++;
+                return obj;
+            }, {});
+            filter.count = Object.keys(filter.items).length;
+        })
+        console.log(tempFilterData);
+        setFilterData(tempFilterData);
     };
 
     // Filter courses by department
@@ -91,7 +120,8 @@ function CourseProvider(props) {
                 searchResults,
                 search,
                 courses,
-                fetchCourses
+                fetchCourses,
+                filterData
             }}
         >
             {props.children}

@@ -58,13 +58,12 @@ function Home() {
             </CourseConsumer>
           </select>
           <Link to="/search-results">
-            <button className="btn btn-primary ml-4 my-search-btn"
-              onClick={e => {
-                // e.preventDefault();
-                console.log(selectRef.current.value);
-                filterBySearch(selectRef.current.value);
-              }} >
-              SEARCH</button>
+            <button
+              className="btn btn-primary ml-4 my-search-btn"
+              onClick={() => filterBySearch(selectRef.current.value)}
+            >
+              SEARCH
+            </button>
           </Link>
         </div>
 
