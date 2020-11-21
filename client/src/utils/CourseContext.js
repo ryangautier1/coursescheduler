@@ -16,8 +16,9 @@ function CourseProvider(props) {
         courses: []
     });
 
+    const localStorageResults = JSON.parse(localStorage.getItem("results"));
     // Search results
-    const [searchResults, setSearchResults] = useState([]);
+    const [searchResults, setSearchResults] = useState(localStorageResults || []);
 
     useEffect(() => {
         fetchCourses();
@@ -30,7 +31,6 @@ function CourseProvider(props) {
             .then(res => {
                 const courses = res.data;
                 setCourses(courses);
-                console.log(res.data);
 
                 // Loop through result
                 const departments = [];
@@ -51,7 +51,6 @@ function CourseProvider(props) {
                     department: sorted[0],
                     courses: initialCourses
                 });
-                console.log('Courses', initialCourses)
             })
             .catch(err => console.error(err));
     };
@@ -60,6 +59,8 @@ function CourseProvider(props) {
     function filterBySearch(title) {
         const filtered = courses.filter(course => course.title === title);
         setSearchResults(filtered);
+        // Store filtered into local storage
+        localStorage.setItem("results", JSON.stringify(filtered));
     };
 
     // Filter courses by department

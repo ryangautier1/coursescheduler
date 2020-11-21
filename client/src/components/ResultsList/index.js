@@ -63,7 +63,7 @@ export default function ResultsList() {
                             {
                                 value => {
                                     const { searchResults } = value;
-                                    console.log('searchResults: ', searchResults)
+
                                     return searchResults.map(item => (
                                         <ResultItem
                                             key={item._id}
