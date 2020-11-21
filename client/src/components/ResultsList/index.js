@@ -5,42 +5,6 @@ import { CourseConsumer } from '../../utils/CourseContext';
 
 export default function ResultsList() {
 
-    // const resultItems = [
-    //     {
-    //         status: 'open',
-    //         title: 'virtual environment',
-    //         department: 'na',
-    //         term: '2019 fall',
-    //         instructor: 'john watson',
-    //         time: {
-    //             days: ['wednesday'],
-    //             hours: '9:00am-12:00pm'
-    //         }
-    //     },
-    //     {
-    //         status: 'reserved',
-    //         title: 'graphic design',
-    //         department: 'na',
-    //         term: '2019 fall',
-    //         instructor: 'john watson',
-    //         time: {
-    //             days: ['monday', 'wednesday'],
-    //             hours: '2:00pm-5:00pm'
-    //         }
-    //     },
-    //     {
-    //         status: 'open',
-    //         title: 'web design',
-    //         department: 'na',
-    //         term: '2019 fall',
-    //         instructor: 'john watson',
-    //         time: {
-    //             days: ['tuesday', 'thursday'],
-    //             hours: '9:00am-12:00pm'
-    //         }
-    //     }
-    // ]
-
     return (
         <div className='row'>
             <div className='list-wrapper col'>
@@ -72,7 +36,7 @@ export default function ResultsList() {
                                             courseNum={item.courseNumber}
                                             depart={item.department}
                                             term={item.term}
-                                            professor={item.professor}
+                                            professor={item.profName}
                                             days={item.days}
                                             startTime={item.startTime}
                                             endTime={item.endTime}
@@ -81,21 +45,6 @@ export default function ResultsList() {
                                 }
                             }
                         </CourseConsumer>
-                        {
-
-                            // resultItems.map(item => (
-                            //     <ResultItem 
-                            //         key={item.title}
-                            //         status={item.status}
-                            //         title={item.title}
-                            //         depart={item.department}
-                            //         term={item.term}
-                            //         instructor={item.instructor}
-                            //         time={item.time}
-                            //     />
-                            // ))
-                        }
-
                     </div>
                 </div>
             </div>

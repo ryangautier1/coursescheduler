@@ -1,13 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './resultItem.css';
-import ProfessorContext from '../../utils/ProfessorContext';
 
 export default function ResultItem({ status, title, courseNum, depart, term, professor, days, startTime, endTime }) {
-
-    const { getProfById } = useContext(ProfessorContext);
-    const profObj = getProfById(professor);
-    const profName = profObj.name;
 
     return (
         <Link to='/course-detail'>
@@ -28,7 +23,7 @@ export default function ResultItem({ status, title, courseNum, depart, term, pro
                         <td className='title'>{courseNum} {title}</td>
                         <td className='depart'>{depart}</td>
                         <td className='term'>{term}</td>
-                        <td className='instructor'>{profName}</td>
+                        <td className='instructor'>{professor}</td>
                         <td className='time d-flex flex-column align-items-center'>
                             <div className='time-days d-flex'>
                                 <span className={days.includes('Sunday') ? 'selected' : ''}>S</span>

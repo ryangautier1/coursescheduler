@@ -17,8 +17,9 @@ import { ProfessorProvider } from './utils/ProfessorContext';
 function App() {
   return (
     <UserProvider>
+      <ProfessorProvider>
       <CourseProvider>
-        <ProfessorProvider>
+        
           <Router>
             <Navbar />
             <Switch>
@@ -51,8 +52,9 @@ function App() {
               </Route>
             </Switch>
           </Router>
-        </ProfessorProvider>
+        
       </CourseProvider>
+      </ProfessorProvider>
     </UserProvider>
   );
 }

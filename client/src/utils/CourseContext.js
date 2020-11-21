@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import API from './API';
+import ProfessorContext from './ProfessorContext';
 
 const CourseContext = React.createContext();
 
 // Provider
 function CourseProvider(props) {
+
+    const { getProfById } = useContext(ProfessorContext);
 
     // Courses list
     const [courses, setCourses] = useState([]);
@@ -58,6 +61,12 @@ function CourseProvider(props) {
     // Filter courses by search
     function filterBySearch(title) {
         const filtered = courses.filter(course => course.title === title);
+        // Add prof name to each search result
+        filtered.forEach(item => {
+            const prof = getProfById(item.professor);
+            item.profName = prof.name;
+        })
+
         setSearchResults(filtered);
         // Store filtered into local storage
         localStorage.setItem("results", JSON.stringify(filtered));
