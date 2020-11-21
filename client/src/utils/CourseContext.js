@@ -19,12 +19,13 @@ function CourseProvider(props) {
         courses: []
     });
 
-    const localStorageResults = JSON.parse(localStorage.getItem("results"));
+    const localStorageResults = JSON.parse(localStorage.getItem('results'));
     // Search results
     const [searchResults, setSearchResults] = useState(localStorageResults || []);
 
+    const localStorageFilterData = JSON.parse(localStorage.getItem('filterData'));
     // Filter data
-    const [filterData, setFilterData] = useState([]);
+    const [filterData, setFilterData] = useState(localStorageFilterData || []);
 
     useEffect(() => {
         fetchCourses();
@@ -97,8 +98,9 @@ function CourseProvider(props) {
             }, {});
             filter.count = Object.keys(filter.items).length;
         })
-        console.log(tempFilterData);
         setFilterData(tempFilterData);
+        // Store filter data into local storage
+        localStorage.setItem("filterData", JSON.stringify(tempFilterData));
     };
 
     // Filter courses by department

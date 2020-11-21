@@ -16,13 +16,6 @@ export default function FilterButton({ title, count, items }) {
             </button>
             <div className='filter-sub-items collapse' id={`${title}-items`}>
                 {
-                    // items.map(item => (
-                    //     <div className='filter-sub-item form-check' key={item.name}>
-                    //         <input type='checkbox' className='form-check-input' id={`${title}-${item.name}`} />
-                    //         <label className='form-check-label' htmlFor={`${title}-${item.name}`}>{`${item.name} (${item.count})`}</label>
-                    //     </div>
-                    // )
-                    // )
                     Object.keys(items).map(item => (
                         <div className='filter-sub-item form-check' key={item}>
                             <input type='checkbox' className='form-check-input' id={`${title}-${item}`} />
