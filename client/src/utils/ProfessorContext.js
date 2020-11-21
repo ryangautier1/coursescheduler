@@ -1,5 +1,5 @@
-import React from 'react';
-import API from '.API';
+import React, { useEffect, useState } from 'react';
+import API from './API';
 
 const ProfessorContext = React.createContext();
 
@@ -9,9 +9,30 @@ function ProfessorProvider(props) {
     // Professors list
     const [professors, setProfessors] = useState([]);
 
+    useEffect(() => {
+        fetchProfessors();
+    }, []);
+
+    // Fetch all professors
+    function fetchProfessors() {
+        API
+            .fetchProfessors()
+            .then(res => {
+                setProfessors(res.data);
+            })
+            .catch(err => console.error(err));
+    };
+
+    // Get professor by id
+    function getProfById(id) {
+        return professors.find(prof => prof._id == id);
+    }
+
     return (
         <ProfessorContext.Provider
-            value={ }
+            value={{
+                getProfById
+            }}
         >
             {props.children}
         </ProfessorContext.Provider>
