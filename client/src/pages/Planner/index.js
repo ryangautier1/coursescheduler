@@ -49,9 +49,9 @@ function Planner() {
       <PlannerAside planners={planners} semester={semester} />
       <div className="planner-container">
         <div className="d-flex flex-row planner-tabs">
-          <i className="fas fa-bars" onClick={() => { setPlannerTabState("list") }}></i>
-          <i className="far fa-calendar" onClick={() => { setPlannerTabState("calendar") }}></i>
-          <i className="fas fa-map" onClick={() => { setPlannerTabState("map") }}></i>
+          <i className="fas fa-bars planner-tabs-item" onClick={() => { setPlannerTabState("list") }}></i>
+          <i className="far fa-calendar planner-tabs-item" onClick={() => { setPlannerTabState("calendar") }}></i>
+          <i className="fas fa-map planner-tabs-item" onClick={() => { setPlannerTabState("map") }}></i>
         </div>
         {plannerTabState === "list" ?
           <PlannerList courses={courses} />
