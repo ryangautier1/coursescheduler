@@ -12,43 +12,46 @@ import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import { UserProvider } from './utils/UserContext';
 import { CourseProvider } from './utils/CourseContext';
+import { ProfessorProvider } from './utils/ProfessorContext';
 
 function App() {
   return (
     <UserProvider>
       <CourseProvider>
-        <Router>
-          <Navbar />
-          <Switch>
-            <Route exact path='/'>
-              <Home name={"Joe Smith"} />
-            </Route>
-            <Route exact path="/dashboard">
-              <Dashboard />
-            </Route>
-            <Route exact path="/planner">
-              <Planner />
-            </Route>
-            <Route path='/signup'>
-              <Signup />
-            </Route>
-            <Route path='/login'>
-              <Login />
-            </Route>
-            <Route path='/search-results'>
-              <SearchResults />
-            </Route>
-            <Route path='/course-detail'>
-              <CourseDetail />
-            </Route>
-            <Route path='/instructor-detail'>
-              <InstructorDetail />
-            </Route>
-            <Route path='/register'>
-              <Register />
-            </Route>
-          </Switch>
-        </Router>
+        <ProfessorProvider>
+          <Router>
+            <Navbar />
+            <Switch>
+              <Route exact path='/'>
+                <Home name={"Joe Smith"} />
+              </Route>
+              <Route exact path="/dashboard">
+                <Dashboard />
+              </Route>
+              <Route exact path="/planner">
+                <Planner />
+              </Route>
+              <Route path='/signup'>
+                <Signup />
+              </Route>
+              <Route path='/login'>
+                <Login />
+              </Route>
+              <Route path='/search-results'>
+                <SearchResults />
+              </Route>
+              <Route path='/course-detail'>
+                <CourseDetail />
+              </Route>
+              <Route path='/instructor-detail'>
+                <InstructorDetail />
+              </Route>
+              <Route path='/register'>
+                <Register />
+              </Route>
+            </Switch>
+          </Router>
+        </ProfessorProvider>
       </CourseProvider>
     </UserProvider>
   );
