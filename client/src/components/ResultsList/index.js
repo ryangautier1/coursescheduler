@@ -31,6 +31,7 @@ export default function ResultsList() {
                                     return searchResults.map(item => (
                                         <ResultItem
                                             key={item._id}
+                                            id={item._id}
                                             status={item.status}
                                             title={item.title}
                                             courseNum={item.courseNumber}

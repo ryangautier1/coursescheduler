@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './resultItem.css';
+import CourseContext from '../../utils/CourseContext';
 
-export default function ResultItem({ status, title, courseNum, depart, term, professor, days, startTime, endTime }) {
+export default function ResultItem({ id, status, title, courseNum, depart, term, professor, days, startTime, endTime }) {
+
+    const { selectCourseForView } = useContext(CourseContext);
 
     return (
-        <Link to='/course-detail'>
+        <Link to='/course-detail' onClick={() => selectCourseForView(id)}>
             <table className='table item-table'>
                 <thead>
                     <tr>

@@ -25,7 +25,7 @@ function ProfessorProvider(props) {
 
     // Get professor by id
     function getProfById(id) {
-        return professors.find(prof => prof._id == id);
+        return professors.find(prof => prof._id === id);
     }
 
     return (

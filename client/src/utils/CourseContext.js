@@ -27,6 +27,9 @@ function CourseProvider(props) {
     // Filter data
     const [filterData, setFilterData] = useState(localStorageFilterData || []);
 
+    // Course detail view
+    const [courseDetail, setCourseDetail] = useState({});
+
     useEffect(() => {
         fetchCourses();
     }, []);
@@ -72,6 +75,7 @@ function CourseProvider(props) {
         })
 
         setSearchResults(filtered);
+        console.log({filtered});
         // Store filtered into local storage
         localStorage.setItem("results", JSON.stringify(filtered));
 
@@ -114,6 +118,13 @@ function CourseProvider(props) {
         return filtered;
     };
 
+    // Course detail view
+    function selectCourseForView(id) {
+        const course = searchResults.find(course => course._id === id);
+        setCourseDetail(course);
+        console.log(course);
+    }
+
     return (
         <CourseContext.Provider
             value={{
@@ -123,7 +134,8 @@ function CourseProvider(props) {
                 search,
                 courses,
                 fetchCourses,
-                filterData
+                filterData,
+                selectCourseForView
             }}
         >
             {props.children}
