@@ -44,7 +44,6 @@ export default function CourseDetail() {
                                 capacity, classCode, courseNumber, department, finalDate, level, numberRegistered, professor, profName, status, term, title
                             } } = value;
                             const tempDate = new Date(finalDate);
-                            console.log({tempDate});
                             return (
                                 <div className='col doc-wrapper'>
                                     <Link to='/search-results'>

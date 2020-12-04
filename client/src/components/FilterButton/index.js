@@ -1,7 +1,23 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './filterButton.css';
+import ProfessorContext from '../../utils/ProfessorContext';
 
 export default function FilterButton({ title, count, items }) {
+
+    const { getProfById } = useContext(ProfessorContext);
+    const [profNames, setProfNames] = useState([]);
+
+    useEffect(() => {
+        const tempProfNames = [];
+        if (title === 'professor') {
+            Object.keys(items).map(item => {
+                const { name } = getProfById(item);
+                tempProfNames.push(name);
+            })
+            setProfNames(tempProfNames);
+        }
+    }, [])
+
     return (
         <React.Fragment>
             <button
@@ -16,10 +32,10 @@ export default function FilterButton({ title, count, items }) {
             </button>
             <div className='filter-sub-items collapse' id={`${title}-items`}>
                 {
-                    Object.keys(items).map(item => (
+                    Object.keys(items).map((item, index) => (
                         <div className='filter-sub-item form-check' key={item}>
                             <input type='checkbox' className='form-check-input' id={`${title}-${item}`} />
-                            <label className='form-check-label' htmlFor={`${title}-${item}`}>{`${item} (${items[item]})`}</label>
+                            <label className='form-check-label' htmlFor={`${title}-${item}`}>{`${profNames[index]} (${items[item]})`}</label>
                         </div>
                     ))
                 }
