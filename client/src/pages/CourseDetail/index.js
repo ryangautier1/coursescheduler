@@ -41,7 +41,7 @@ export default function CourseDetail() {
                     {
                         value => {
                             const { courseDetail: {
-                                capacity, classCode, courseNumber, department, finalDate, level, numberRegistered, profName, status, term, title
+                                capacity, classCode, courseNumber, department, finalDate, level, numberRegistered, professor, profName, status, term, title
                             } } = value;
                             const tempDate = new Date(finalDate);
                             console.log({tempDate});
@@ -56,7 +56,7 @@ export default function CourseDetail() {
                                     <div className='row'>
                                         <div className='col-auto course-school'>{department} {courseNumber}</div>
                                         <div className='col course-instructor'>
-                                            <Link to='/instructor-detail'>
+                                            <Link to={`/instructor-detail/${professor}`}>
                                                 {profName}
                                             </Link>
                                         </div>

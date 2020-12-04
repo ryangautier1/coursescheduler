@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import '../pages.css';
 import './instructorDetail.css';
 import ButtonPrimary from '../../components/ButtonPrimary';
@@ -6,8 +7,22 @@ import UserImg from '../../images/male.svg';
 import LabelAndValue from '../../components/LabelAndValue';
 import InstructorCoursesList from '../../components/InstructorCoursesList';
 import BackLink from '../../components/BackLink';
+import API from '../../utils/API';
 
 export default function InstructorDetail() {
+
+    const { id } = useParams();
+
+    const [instructorDetail, setInstructorDetail] = useState({});
+
+    const { name, school, department, office, email, website, courseLoad, grading, projects, teachingPreference, organization, courses } = instructorDetail;
+
+    useEffect(() => {
+        API
+            .fetchProfById(id)
+            .then(res => setInstructorDetail(res.data))
+            .catch(err => console.error(err));
+    }, []);
 
     const currentCourses = [
         {
@@ -50,16 +65,16 @@ export default function InstructorDetail() {
                         <div className='col-lg-8'>
                             <div className='d-flex justify-content-between align-items-end'>
                                 <div className='d-flex flex-column'>
-                                    <span className='name'>John Watson</span>
+    <span className='name'>{name}</span>
                                     <span className='title'>professor</span>
                                 </div>
                                 <ButtonPrimary text='View website' />
                             </div>
                             <div className='mt-4'>
-                                <LabelAndValue label='School' value='The Information of School' />
-                                <LabelAndValue label='Department' value='NA' />
-                                <LabelAndValue label='Office' value='UTA 5.326' />
-                                <LabelAndValue label='E-Mail' value='john.watson@ischool.utexas.edu' />
+                                <LabelAndValue label='School' value={school} />
+                                <LabelAndValue label='Department' value={department} />
+                                <LabelAndValue label='Office' value={office} />
+                                <LabelAndValue label='E-Mail' value={email} />
                             </div>
                         </div>
                     </div>
@@ -67,11 +82,11 @@ export default function InstructorDetail() {
                 <div className='col-md instructor-info p-4'>
                     <span className='name'>Teaching Style</span>
                     <div className='mt-3'>
-                        <LabelAndValue label='Course Load' value='Medium' />
-                        <LabelAndValue label='Grading' value='Pass/fail allowed' />
-                        <LabelAndValue label='Reading/Writing/Project' value='Medium to heavy' />
-                        <LabelAndValue label='Teaching Preference' value='Being on time' />
-                        <LabelAndValue label='Course Organizing' value='PowerPoint and discussion' />
+                        <LabelAndValue label='Course Load' value={courseLoad} />
+                        <LabelAndValue label='Grading' value={grading} />
+                        <LabelAndValue label='Reading/Writing/Project' value={projects} />
+                        <LabelAndValue label='Teaching Preference' value={teachingPreference} />
+                        <LabelAndValue label='Course Organizing' value={organization} />
                     </div>
                 </div>
             </div>
