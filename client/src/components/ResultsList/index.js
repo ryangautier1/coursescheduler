@@ -1,47 +1,9 @@
 import React from 'react';
 import './resultsList.css';
 import ResultItem from '../ResultItem';
+import { CourseConsumer } from '../../utils/CourseContext';
 
 export default function ResultsList() {
-
-    const resultItems = [
-        {
-            status: 'open',
-            title: 'virtual environment',
-            school: 'inf',
-            department: 'na',
-            term: '2019 fall',
-            instructor: 'john watson',
-            time: {
-                days: ['wednesday'],
-                hours: '9:00am-12:00pm'
-            }
-        },
-        {
-            status: 'reserved',
-            title: 'graphic design',
-            school: 'inf',
-            department: 'na',
-            term: '2019 fall',
-            instructor: 'john watson',
-            time: {
-                days: ['monday', 'wednesday'],
-                hours: '2:00pm-5:00pm'
-            }
-        },
-        {
-            status: 'open',
-            title: 'web design',
-            school: 'inf',
-            department: 'na',
-            term: '2019 fall',
-            instructor: 'john watson',
-            time: {
-                days: ['tuesday', 'thursday'],
-                hours: '9:00am-12:00pm'
-            }
-        }
-    ]
 
     return (
         <div className='row'>
@@ -61,21 +23,29 @@ export default function ResultsList() {
                 {/* List of results */}
                 <div className='result-items row'>
                     <div className='col'>
-                        {
-                            resultItems.map(item => (
-                                <ResultItem 
-                                    key={item.title}
-                                    status={item.status}
-                                    title={item.title}
-                                    school={item.school}
-                                    depart={item.department}
-                                    term={item.term}
-                                    instructor={item.instructor}
-                                    time={item.time}
-                                />
-                            ))
-                        }
-                        
+                        <CourseConsumer>
+                            {
+                                value => {
+                                    const { searchResults } = value;
+
+                                    return searchResults.map(item => (
+                                        <ResultItem
+                                            key={item._id}
+                                            id={item._id}
+                                            status={item.status}
+                                            title={item.title}
+                                            courseNum={item.courseNumber}
+                                            depart={item.department}
+                                            term={item.term}
+                                            professor={item.profName}
+                                            days={item.days}
+                                            startTime={item.startTime}
+                                            endTime={item.endTime}
+                                        />
+                                    ))
+                                }
+                            }
+                        </CourseConsumer>
                     </div>
                 </div>
             </div>

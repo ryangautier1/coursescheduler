@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import API from './API';
+import ProfessorContext from './ProfessorContext';
 
 const CourseContext = React.createContext();
 
 // Provider
 function CourseProvider(props) {
+
+    const { getProfById } = useContext(ProfessorContext);
 
     // Courses list
     const [courses, setCourses] = useState([]);
@@ -16,8 +19,17 @@ function CourseProvider(props) {
         courses: []
     });
 
+    const localStorageResults = JSON.parse(localStorage.getItem('results'));
     // Search results
-    const [searchResults, setSearchResults] = useState([]);
+    const [searchResults, setSearchResults] = useState(localStorageResults || []);
+
+    const localStorageFilterData = JSON.parse(localStorage.getItem('filterData'));
+    // Filter data
+    const [filterData, setFilterData] = useState(localStorageFilterData || []);
+
+    const localStorageCourseDetail = JSON.parse(localStorage.getItem('courseDetail'));
+    // Course detail view
+    const [courseDetail, setCourseDetail] = useState(localStorageCourseDetail || {});
 
     useEffect(() => {
         fetchCourses();
@@ -30,7 +42,6 @@ function CourseProvider(props) {
             .then(res => {
                 const courses = res.data;
                 setCourses(courses);
-                console.log(res.data);
 
                 // Loop through result
                 const departments = [];
@@ -51,7 +62,6 @@ function CourseProvider(props) {
                     department: sorted[0],
                     courses: initialCourses
                 });
-                console.log('Courses', initialCourses)
             })
             .catch(err => console.error(err));
     };
@@ -59,7 +69,42 @@ function CourseProvider(props) {
     // Filter courses by search
     function filterBySearch(title) {
         const filtered = courses.filter(course => course.title === title);
+        // Add prof name to each search result
+        filtered.forEach(item => {
+            const prof = getProfById(item.professor);
+            item.profName = prof.name;
+        })
+
         setSearchResults(filtered);
+        // Store filtered into local storage
+        localStorage.setItem("results", JSON.stringify(filtered));
+
+        // Populate filter data
+        const tempFilterData = [
+            // { title: '', count: 0, items: {} }
+            // { title: 'school', count: 1, items: {} },
+            // { title: 'department', count: 1, items: {} },
+            { title: 'level', count: 0, items: {}},
+            { title: 'term', count: 0, items: {} },
+            { title: 'status', count: 0, items: {} },
+            // { title: 'days', count: 0, items: {} },
+            { title: 'professor', count: 0, items: {} }
+        ];
+        tempFilterData.forEach(filter => {
+            const currentFilterTitle = filter.title;
+            // Create items obj for each that counts all the different categories
+            filter.items = filtered.reduce((obj, item) => {
+                if (!obj[item[currentFilterTitle]]) {
+                    obj[item[currentFilterTitle]] = 0;
+                }
+                obj[item[currentFilterTitle]]++;
+                return obj;
+            }, {});
+            filter.count = Object.keys(filter.items).length;
+        })
+        setFilterData(tempFilterData);
+        // Store filter data into local storage
+        localStorage.setItem("filterData", JSON.stringify(tempFilterData));
     };
 
     // Filter courses by department
@@ -73,6 +118,14 @@ function CourseProvider(props) {
         return filtered;
     };
 
+    // Course detail view
+    function selectCourseForView(id) {
+        const course = searchResults.find(course => course._id === id);
+        setCourseDetail(course);
+        // Store course detail data into local storage
+        localStorage.setItem('courseDetail', JSON.stringify(course));
+    }
+
     return (
         <CourseContext.Provider
             value={{
@@ -81,7 +134,10 @@ function CourseProvider(props) {
                 searchResults,
                 search,
                 courses,
-                fetchCourses
+                fetchCourses,
+                filterData,
+                selectCourseForView,
+                courseDetail
             }}
         >
             {props.children}
