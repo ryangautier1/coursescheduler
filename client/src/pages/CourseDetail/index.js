@@ -23,7 +23,6 @@ export default function CourseDetail() {
         const full = Math.floor(avgRating);
         const half = Math.ceil(avgRating) - full === 1 ? 1 : 0;
         const empty = 5 - full - half;
-        console.log({ full, half, empty })
         for (let i = 0; i < full; i++) {
             tempStars.push('full');
         }
@@ -42,9 +41,9 @@ export default function CourseDetail() {
                     {
                         value => {
                             const { courseDetail: {
-                                capacity, classCode, courseNumber, department, finalDate, level, numberRegistered, profName, status, term, title
+                                capacity, classCode, courseNumber, department, finalDate, level, numberRegistered, professor, profName, status, term, title
                             } } = value;
-
+                            const tempDate = new Date(finalDate);
                             return (
                                 <div className='col doc-wrapper'>
                                     <Link to='/search-results'>
@@ -56,7 +55,7 @@ export default function CourseDetail() {
                                     <div className='row'>
                                         <div className='col-auto course-school'>{department} {courseNumber}</div>
                                         <div className='col course-instructor'>
-                                            <Link to='/instructor-detail'>
+                                            <Link to={`/instructor-detail/${professor}`}>
                                                 {profName}
                                             </Link>
                                         </div>
@@ -116,7 +115,7 @@ export default function CourseDetail() {
                                             <span className='course-doc-label'>Status: </span> {status}
                                         </div>
                                         <div className='col'>
-                                            <span className='course-doc-label'>Exam/Final Deadline: </span> {finalDate}
+                                            <span className='course-doc-label'>Exam/Final Deadline: </span> {tempDate.getFullYear()}/{tempDate.getMonth()}/{tempDate.getDate()}
                                         </div>
                                     </div>
                                     <div className='row mt-2'>

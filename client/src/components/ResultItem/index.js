@@ -6,6 +6,7 @@ import CourseContext from '../../utils/CourseContext';
 export default function ResultItem({ id, status, title, courseNum, depart, term, professor, days, startTime, endTime }) {
 
     const { selectCourseForView } = useContext(CourseContext);
+    const statusClass = status.toLowerCase();
 
     return (
         <Link to='/course-detail' onClick={() => selectCourseForView(id)}>
@@ -22,7 +23,7 @@ export default function ResultItem({ id, status, title, courseNum, depart, term,
                 </thead>
                 <tbody>
                     <tr className='item-data'>
-                        <td className='status'><i className={`${status} fas fa-circle`} /></td>
+                        <td className='status'><i className={`${statusClass} fas fa-circle`} /></td>
                         <td className='title'>{courseNum} {title}</td>
                         <td className='depart'>{depart}</td>
                         <td className='term'>{term}</td>

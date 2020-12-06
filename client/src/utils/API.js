@@ -19,5 +19,8 @@ export default {
     },
     fetchProfessors: function () {
         return axios.get('/api/professor');
+    },
+    fetchProfById: function (id) {
+        return axios.get('/api/professor/' + id)
     }
 };
