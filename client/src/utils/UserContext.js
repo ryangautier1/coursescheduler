@@ -15,6 +15,7 @@ function UserProvider(props) {
         isLoggedIn: false,
         info: {}
     });
+    const [planners, setPlanners] = ([]);
 
     // Signup & Login
     const [name, setName] = useState('');
@@ -68,7 +69,7 @@ function UserProvider(props) {
                     // Send user to profile or dashboard
                     fetchUser();
                     console.log('User is now logged in.');
-                    window.location.replace("/");
+                    // window.location.replace("/");
                 })
                 .catch(err => {
                     console.log('Something went wrong while logging in...', err);
@@ -86,8 +87,10 @@ function UserProvider(props) {
                     isLoggedIn: true,
                     info: res.data
                 });
+                setPlanners(user.info.planners)
             })
             .catch(() => {
+                console.log("fetch user failed")
                 setUser({
                     isLoggedIn: false,
                     info: {}
