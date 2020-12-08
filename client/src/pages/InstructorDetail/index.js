@@ -65,10 +65,12 @@ export default function InstructorDetail() {
                         <div className='col-lg-8'>
                             <div className='d-flex justify-content-between align-items-end'>
                                 <div className='d-flex flex-column'>
-    <span className='name'>{name}</span>
+                                    <span className='name'>{name}</span>
                                     <span className='title'>professor</span>
                                 </div>
-                                <ButtonPrimary text='View website' />
+                                <a href={website} target='_blank'>
+                                    <ButtonPrimary text='View website' />
+                                </a>
                             </div>
                             <div className='mt-4'>
                                 <LabelAndValue label='School' value={school} />
