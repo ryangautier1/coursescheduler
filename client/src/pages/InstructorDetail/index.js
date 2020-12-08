@@ -38,7 +38,6 @@ export default function InstructorDetail() {
         const tempTaughtCourses = [];
         const currentYear = new Date().getFullYear();
         courseIds.forEach(courseId => {
-            console.log(courseId)
             const course = courses.find(course => course._id === courseId);
             const courseYear = parseInt(course.term.split(' ')[0])
             if (courseYear >= currentYear) {

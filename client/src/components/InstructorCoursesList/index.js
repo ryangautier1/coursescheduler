@@ -11,12 +11,12 @@ export default function InstructorCoursesList({ label, courses }) {
                 </div>
                 {
                     courses.map(course => (
-                        <div className='row py-2 course-item' key={course.code}>
-                            <div className='col-md-2'>{course.code}</div>
-                            <div className='col-md-4'>{course.name}</div>
+                        <div className='row py-2 course-item' key={course._id}>
+                            <div className='col-md-2'>{course.department} {course.courseNumber}</div>
+                            <div className='col-md-4'>{course.title}</div>
                             <div className='col-md-4'>{course.term}</div>
                             <div className='col-md-2'>
-                                <Link to={course.link}>View Course</Link>
+                                <Link to='/course-detail'>View Course</Link>
                             </div>
                         </div>
                     ))
