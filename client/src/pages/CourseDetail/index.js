@@ -4,10 +4,14 @@ import '../pages.css';
 import './courseDetail.css';
 import ButtonPrimary from '../../components/ButtonPrimary';
 import SyllabusSample from '../../images/syllabus_sample.pdf';
-import CourseContext, { CourseConsumer } from '../../utils/CourseContext';
+import ProfessorContext from '../../utils/ProfessorContext';
 import API from '../../utils/API';
 
 export default function CourseDetail() {
+
+    const { getProfById } = useContext(ProfessorContext);
+
+    const [profName, setProfName] = useState('');
 
     const { id } = useParams();
 
@@ -15,9 +19,6 @@ export default function CourseDetail() {
 
     const tempDate = new Date(course.finalDate);
 
-    // const { courseDetail: { ratings } } = useContext(CourseContext);
-
-    // const avgRating = ratings.reduce((total, x) => total + x) / ratings.length;
     let avgRating;
 
     const [stars, setStars] = useState([]);
@@ -27,6 +28,8 @@ export default function CourseDetail() {
             .fetchCourseById(id)
             .then(res => {
                 setCourse(res.data);
+                const professor = getProfById(res.data.professor);
+                setProfName(professor.name);
                 const { ratings } = res.data;
                 avgRating = ratings.reduce((total, x) => total + x) / ratings.length;
                 return5stars();
@@ -53,14 +56,6 @@ export default function CourseDetail() {
     return (
         <div className='container-fluid course-doc'>
             <div className='row justify-content-center'>
-                {/* <CourseConsumer> */}
-                {/* {
-                        value => {
-                            const { courseDetail: {
-                                capacity, classCode, courseNumber, department, finalDate, level, numberRegistered, professor, profName, status, term, title
-                            } } = value;
-                            const tempDate = new Date(finalDate);
-                            return ( */}
                 {
                     course && (
                         <div className='col doc-wrapper'>
@@ -74,7 +69,7 @@ export default function CourseDetail() {
                                 <div className='col-auto course-school'>{course.department} {course.courseNumber}</div>
                                 <div className='col course-instructor'>
                                     <Link to={`/instructor-detail/${course.professor}`}>
-                                        {/* {profName} */}
+                                        {profName}
                                     </Link>
                                 </div>
                             </div>
@@ -168,11 +163,6 @@ export default function CourseDetail() {
                         </div>
                     )
                 }
-
-                {/* )
-                        }
-                    } */}
-                {/* </CourseConsumer> */}
             </div>
         </div>
     )
