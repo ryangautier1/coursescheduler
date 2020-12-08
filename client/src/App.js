@@ -41,7 +41,7 @@ function App() {
               <Route path='/search-results'>
                 <SearchResults />
               </Route>
-              <Route path='/course-detail'>
+              <Route path='/course-detail/:id'>
                 <CourseDetail />
               </Route>
               <Route path='/instructor-detail/:id'>
