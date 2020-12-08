@@ -9,7 +9,7 @@ export default function ResultItem({ id, status, title, courseNum, depart, term,
     const statusClass = status.toLowerCase();
 
     return (
-        <Link to='/course-detail' onClick={() => selectCourseForView(id)}>
+        <Link to={`/course-detail/${id}`} onClick={() => selectCourseForView(id)}>
             <table className='table item-table'>
                 <thead>
                     <tr>
