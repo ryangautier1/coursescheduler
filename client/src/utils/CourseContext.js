@@ -27,9 +27,9 @@ function CourseProvider(props) {
     // Filter data
     const [filterData, setFilterData] = useState(localStorageFilterData || []);
 
-    const localStorageCourseDetail = JSON.parse(localStorage.getItem('courseDetail'));
+    // const localStorageCourseDetail = JSON.parse(localStorage.getItem('courseDetail'));
     // Course detail view
-    const [courseDetail, setCourseDetail] = useState(localStorageCourseDetail || {});
+    const [courseDetail, setCourseDetail] = useState({});
 
     useEffect(() => {
         fetchCourses();

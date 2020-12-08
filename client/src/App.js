@@ -18,8 +18,7 @@ function App() {
   return (
     <UserProvider>
       <ProfessorProvider>
-      <CourseProvider>
-        
+        <CourseProvider>
           <Router>
             <Navbar />
             <Switch>
@@ -52,8 +51,7 @@ function App() {
               </Route>
             </Switch>
           </Router>
-        
-      </CourseProvider>
+        </CourseProvider>
       </ProfessorProvider>
     </UserProvider>
   );
