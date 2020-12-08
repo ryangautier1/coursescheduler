@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import '../pages.css';
 import './instructorDetail.css';
@@ -8,51 +8,79 @@ import LabelAndValue from '../../components/LabelAndValue';
 import InstructorCoursesList from '../../components/InstructorCoursesList';
 import BackLink from '../../components/BackLink';
 import API from '../../utils/API';
+import CourseContext from '../../utils/CourseContext';
 
 export default function InstructorDetail() {
+
+    const { courses } = useContext(CourseContext);
+    const [currentCourses, setCurrentCourses] = useState([]);
+    const [taughtCourses, setTaughtCourses] = useState([]);
 
     const { id } = useParams();
 
     const [instructorDetail, setInstructorDetail] = useState({});
 
-    const { name, school, department, office, email, website, courseLoad, grading, projects, teachingPreference, organization, courses } = instructorDetail;
+    const { name, school, department, office, email, website, courseLoad, grading, projects, teachingPreference, organization } = instructorDetail;
 
     useEffect(() => {
         API
             .fetchProfById(id)
-            .then(res => setInstructorDetail(res.data))
+            .then(res => {
+                setInstructorDetail(res.data);
+                getCourses(res.data.courses);
+            })
             .catch(err => console.error(err));
+
     }, []);
 
-    const currentCourses = [
-        {
-            code: 'INF 385T',
-            name: 'Virtual Environment',
-            term: '2019 Fall',
-            link: '/course-detail'
-        }
-    ];
+    function getCourses(courseIds) {
+        const tempCurrentCourses = [];
+        const tempTaughtCourses = [];
+        const currentYear = new Date().getFullYear();
+        courseIds.forEach(courseId => {
+            console.log(courseId)
+            const course = courses.find(course => course._id === courseId);
+            const courseYear = parseInt(course.term.split(' ')[0])
+            if (courseYear >= currentYear) {
+                tempCurrentCourses.push(course)
+            } else {
+                tempTaughtCourses.push(course)
+            }
+        })
+        setCurrentCourses(tempCurrentCourses);
+        setTaughtCourses(tempTaughtCourses);
+    }
 
-    const taughtCourses = [
-        {
-            code: 'INF 342',
-            name: 'Perspective on Information',
-            term: '2018 Fall',
-            link: '/course-detail'
-        },
-        {
-            code: 'INF 311',
-            name: 'Interaction Design',
-            term: '2018 Spring',
-            link: '/course-detail'
-        },
-        {
-            code: 'INF 313',
-            name: 'Understanding Research',
-            term: '2016 Summer',
-            link: '/course-detail'
-        }
-    ]
+
+    // const currentCourses = [
+    //     {
+    //         code: 'INF 385T',
+    //         name: 'Virtual Environment',
+    //         term: '2019 Fall',
+    //         link: '/course-detail'
+    //     }
+    // ];
+
+    // const taughtCourses = [
+    //     {
+    //         code: 'INF 342',
+    //         name: 'Perspective on Information',
+    //         term: '2018 Fall',
+    //         link: '/course-detail'
+    //     },
+    //     {
+    //         code: 'INF 311',
+    //         name: 'Interaction Design',
+    //         term: '2018 Spring',
+    //         link: '/course-detail'
+    //     },
+    //     {
+    //         code: 'INF 313',
+    //         name: 'Understanding Research',
+    //         term: '2016 Summer',
+    //         link: '/course-detail'
+    //     }
+    // ]
 
     return (
         <div className='container-fluid instructor-container'>
