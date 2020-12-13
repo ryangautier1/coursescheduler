@@ -18,8 +18,7 @@ function App() {
   return (
     <UserProvider>
       <ProfessorProvider>
-      <CourseProvider>
-        
+        <CourseProvider>
           <Router>
             <Navbar />
             <Switch>
@@ -41,7 +40,7 @@ function App() {
               <Route path='/search-results'>
                 <SearchResults />
               </Route>
-              <Route path='/course-detail'>
+              <Route path='/course-detail/:id'>
                 <CourseDetail />
               </Route>
               <Route path='/instructor-detail/:id'>
@@ -52,8 +51,7 @@ function App() {
               </Route>
             </Switch>
           </Router>
-        
-      </CourseProvider>
+        </CourseProvider>
       </ProfessorProvider>
     </UserProvider>
   );

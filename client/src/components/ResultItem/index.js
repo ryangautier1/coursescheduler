@@ -5,11 +5,11 @@ import CourseContext from '../../utils/CourseContext';
 
 export default function ResultItem({ id, status, title, courseNum, depart, term, professor, days, startTime, endTime }) {
 
-    const { selectCourseForView } = useContext(CourseContext);
+    // const { selectCourseForView } = useContext(CourseContext);
     const statusClass = status.toLowerCase();
 
     return (
-        <Link to='/course-detail' onClick={() => selectCourseForView(id)}>
+        <Link to={`/course-detail/${id}`}>
             <table className='table item-table'>
                 <thead>
                     <tr>

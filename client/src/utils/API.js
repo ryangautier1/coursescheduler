@@ -17,6 +17,9 @@ export default {
     fetchCourses: function () {
         return axios.get('/api/course');
     },
+    fetchCourseById: function (id) {
+        return axios.get('/api/course/' + id)
+    },
     fetchProfessors: function () {
         return axios.get('/api/professor');
     },
