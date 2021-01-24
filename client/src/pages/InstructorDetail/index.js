@@ -64,7 +64,7 @@ export default function InstructorDetail() {
                                     <span className='name'>{name}</span>
                                     <span className='title'>professor</span>
                                 </div>
-                                <a href={website} target='_blank'>
+                                <a href={website} target='_blank' rel="noopener noreferrer">
                                     <ButtonPrimary text='View website' />
                                 </a>
                             </div>

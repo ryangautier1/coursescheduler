@@ -19,8 +19,6 @@ export default function CourseDetail() {
 
     const tempDate = new Date(course.finalDate);
 
-    // let avgRating;
-
     const [stars, setStars] = useState([]);
 
     useEffect(() => {
@@ -33,7 +31,6 @@ export default function CourseDetail() {
                 const { ratings } = res.data;
                 res.data.avgRating = ratings.reduce((total, x) => total + x) / ratings.length;
                 return5stars(res.data);
-                console.log("Course: ", res.data);
             })
             .catch(err => console.error(err));
     }, []);
@@ -42,7 +39,6 @@ export default function CourseDetail() {
         const tempStars = [];
         const full = Math.floor(course.avgRating);
         const half = Math.ceil(course.avgRating) - full === 1 ? 1 : 0;
-        console.log({course});
         const empty = 5 - full - half;
         for (let i = 0; i < full; i++) {
             tempStars.push('full');
