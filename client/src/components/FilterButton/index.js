@@ -12,11 +12,11 @@ export default function FilterButton({ title, count, items }) {
         if (title === 'professor') {
             Object.keys(items).map(item => {
                 const { name } = getProfById(item);
-                tempProfNames.push(name);
+                return tempProfNames.push(name);
             })
             setProfNames(tempProfNames);
         }
-    }, [])
+    }, [title, items, getProfById])
 
     return (
         <React.Fragment>

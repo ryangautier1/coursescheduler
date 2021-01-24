@@ -73,7 +73,8 @@ function CourseProvider(props) {
         filtered.forEach(item => {
             const prof = getProfById(item.professor);
             item.profName = prof.name;
-        })
+        });
+        console.log({filtered});
 
         setSearchResults(filtered);
         // Store filtered into local storage

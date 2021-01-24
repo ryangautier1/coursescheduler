@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './resultItem.css';
-import CourseContext from '../../utils/CourseContext';
+// import CourseContext from '../../utils/CourseContext';
 
 export default function ResultItem({ id, status, title, courseNum, depart, term, professor, days, startTime, endTime }) {
 
