@@ -32,7 +32,7 @@ function Dashboard() {
     e.target.classList.toggle("fa-arrow-up");
   };
 
-// returns object with 5 semesters, eith the current semester at index 1
+  // returns object with 5 semesters, eith the current semester at index 1
   const getSemesters = () => {
     let today = new Date();
     let currentMonth = today.getMonth();
@@ -41,30 +41,51 @@ function Dashboard() {
     let semesterYears;
     if (currentMonth <= 4) {
       semesters = ["Fall", "Spring", "Summer", "Fall", "Spring"];
-      semesterYears = [currentYear-1, currentYear, currentYear, currentYear, currentYear+1];
-    } 
+      semesterYears = [currentYear - 1, currentYear, currentYear, currentYear, currentYear + 1];
+    }
     else if (currentMonth > 4 && currentMonth < 9) {
       semesters = ["Spring", "Summer", "Fall", "Spring", "Summer"];
-      semesterYears = [currentYear, currentYear, currentYear, currentYear+1, currentYear+1];
+      semesterYears = [currentYear, currentYear, currentYear, currentYear + 1, currentYear + 1];
     }
     else {
       semesters = ["Summer", "Fall", "Spring", "Summer", "Fall",];
-      semesterYears = [currentYear, currentYear, currentYear+1, currentYear+1, currentYear+1];
+      semesterYears = [currentYear, currentYear, currentYear + 1, currentYear + 1, currentYear + 1];
     }
 
-    return { semesters, semesterYears };    
+    return { semesters, semesterYears };
   };
+
+  const setActiveSemester = (e, index) => {
+    setSemesterState([getSemesters().semesters[index], getSemesters().semesterYears[index]]);
+    document.querySelector(".semester-list").childNodes.forEach(item => item.classList.remove("font-weight-bold"));
+    e.target.classList.add("font-weight-bold");
+  }
 
   return (
     <div className="dashboard-container row">
       <div className="col-lg-2 col-12">
         <h3 className="font-weight-light">DASHBOARD</h3>
-        <div className="d-flex flex-column">
-          <span>{getSemesters().semesters[0]} {getSemesters().semesterYears[0]}</span>
-          <span>{getSemesters().semesters[1]} {getSemesters().semesterYears[1]}</span>
-          <span>{getSemesters().semesters[2]} {getSemesters().semesterYears[2]}</span>
-          <span>{getSemesters().semesters[3]} {getSemesters().semesterYears[3]}</span>
-          <span>{getSemesters().semesters[4]} {getSemesters().semesterYears[4]}</span>
+        <div className="d-flex flex-column semester-list">
+          <span
+            onClick={(e) => setActiveSemester(e, 0)}
+            className="cursor-pointer">
+            {getSemesters().semesters[0]} {getSemesters().semesterYears[0]}</span>
+          <span
+            onClick={(e) => setActiveSemester(e, 1)}
+            className="cursor-pointer font-weight-bold">
+            {getSemesters().semesters[1]} {getSemesters().semesterYears[1]}</span>
+          <span
+            onClick={(e) => setActiveSemester(e, 2)}
+            className="cursor-pointer">
+            {getSemesters().semesters[2]} {getSemesters().semesterYears[2]}</span> 
+          <span 
+            onClick={(e) => setActiveSemester(e, 3)}
+            className="cursor-pointer">
+            {getSemesters().semesters[3]} {getSemesters().semesterYears[3]}</span>
+          <span 
+            onClick={(e) => setActiveSemester(e, 4)}
+            className="cursor-pointer">
+            {getSemesters().semesters[4]} {getSemesters().semesterYears[4]}</span>
         </div>
       </div>
 
