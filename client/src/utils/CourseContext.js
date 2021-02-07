@@ -19,6 +19,9 @@ function CourseProvider(props) {
         courses: []
     });
 
+    // Filter courses
+    const [filteredResults, setFilteredResults] = useState([]);
+
     const localStorageResults = JSON.parse(localStorage.getItem('results'));
     // Search results
     const [searchResults, setSearchResults] = useState(localStorageResults || []);
@@ -127,6 +130,18 @@ function CourseProvider(props) {
         localStorage.setItem('courseDetail', JSON.stringify(course));
     }
 
+    // Filter search results
+    function filterSearchResults(filter) {
+        const tempResults = [...searchResults];
+        let newResults = [];
+        // for (let i = 0; i < arr.length; i++) {
+        newResults = tempResults.filter(course => course[filter.title] == filter.value);
+        // }
+        console.log({newResults});
+    }
+
+
+
     return (
         <CourseContext.Provider
             value={{
@@ -138,7 +153,8 @@ function CourseProvider(props) {
                 fetchCourses,
                 filterData,
                 selectCourseForView,
-                courseDetail
+                courseDetail,
+                filterSearchResults
             }}
         >
             {props.children}
