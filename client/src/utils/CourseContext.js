@@ -20,7 +20,7 @@ function CourseProvider(props) {
     });
 
     // Filter courses
-    const [filteredResults, setFilteredResults] = useState([]);
+    // const [filteredResults, setFilteredResults] = useState([]);
 
     const localStorageResults = JSON.parse(localStorage.getItem('results'));
     // Search results
@@ -77,7 +77,7 @@ function CourseProvider(props) {
             const prof = getProfById(item.professor);
             item.profName = prof.name;
         });
-        console.log({filtered});
+        // console.log({filtered});
 
         setSearchResults(filtered);
         // Store filtered into local storage
@@ -131,13 +131,18 @@ function CourseProvider(props) {
     }
 
     // Filter search results
-    function filterSearchResults(filter) {
+    function filterSearchResults(e) {
+        console.log(e.currentTarget.id);
+        const filterItem = e.currentTarget.id;
+        const filterTitle = filterItem.split('-')[0];
+        const filterValue = filterItem.split('-')[1];
         const tempResults = [...searchResults];
         let newResults = [];
         // for (let i = 0; i < arr.length; i++) {
-        newResults = tempResults.filter(course => course[filter.title] == filter.value);
+        newResults = tempResults.filter(course => course[filterTitle] == filterValue);
         // }
         console.log({newResults});
+        setSearchResults(newResults);
     }
 
 
