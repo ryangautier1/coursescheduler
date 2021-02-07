@@ -19,6 +19,9 @@ function CourseProvider(props) {
         courses: []
     });
 
+    // Filter courses
+    // const [filteredResults, setFilteredResults] = useState([]);
+
     const localStorageResults = JSON.parse(localStorage.getItem('results'));
     // Search results
     const [searchResults, setSearchResults] = useState(localStorageResults || []);
@@ -73,7 +76,8 @@ function CourseProvider(props) {
         filtered.forEach(item => {
             const prof = getProfById(item.professor);
             item.profName = prof.name;
-        })
+        });
+        // console.log({filtered});
 
         setSearchResults(filtered);
         // Store filtered into local storage
@@ -126,6 +130,23 @@ function CourseProvider(props) {
         localStorage.setItem('courseDetail', JSON.stringify(course));
     }
 
+    // Filter search results
+    function filterSearchResults(e) {
+        console.log(e.currentTarget.id);
+        const filterItem = e.currentTarget.id;
+        const filterTitle = filterItem.split('-')[0];
+        const filterValue = filterItem.split('-')[1];
+        const tempResults = [...searchResults];
+        let newResults = [];
+        // for (let i = 0; i < arr.length; i++) {
+        newResults = tempResults.filter(course => course[filterTitle] == filterValue);
+        // }
+        console.log({newResults});
+        setSearchResults(newResults);
+    }
+
+
+
     return (
         <CourseContext.Provider
             value={{
@@ -137,7 +158,8 @@ function CourseProvider(props) {
                 fetchCourses,
                 filterData,
                 selectCourseForView,
-                courseDetail
+                courseDetail,
+                filterSearchResults
             }}
         >
             {props.children}

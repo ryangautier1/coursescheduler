@@ -19,8 +19,6 @@ export default function CourseDetail() {
 
     const tempDate = new Date(course.finalDate);
 
-    let avgRating;
-
     const [stars, setStars] = useState([]);
 
     useEffect(() => {
@@ -31,16 +29,16 @@ export default function CourseDetail() {
                 const professor = getProfById(res.data.professor);
                 setProfName(professor.name);
                 const { ratings } = res.data;
-                avgRating = ratings.reduce((total, x) => total + x) / ratings.length;
-                return5stars();
+                res.data.avgRating = ratings.reduce((total, x) => total + x) / ratings.length;
+                return5stars(res.data);
             })
             .catch(err => console.error(err));
     }, []);
 
-    function return5stars() {
+    function return5stars(course) {
         const tempStars = [];
-        const full = Math.floor(avgRating);
-        const half = Math.ceil(avgRating) - full === 1 ? 1 : 0;
+        const full = Math.floor(course.avgRating);
+        const half = Math.ceil(course.avgRating) - full === 1 ? 1 : 0;
         const empty = 5 - full - half;
         for (let i = 0; i < full; i++) {
             tempStars.push('full');
@@ -97,7 +95,7 @@ export default function CourseDetail() {
                                             })
                                         }
                                     </div>
-                                    {avgRating}/5 {`(${course.ratings && course.ratings.length})`}
+                                    {course.avgRating}/5 {`(${course.ratings && course.ratings.length})`}
                                 </div>
                             </div>
                             <div className='row mt-4'>

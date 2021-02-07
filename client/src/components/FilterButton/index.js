@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './filterButton.css';
 import ProfessorContext from '../../utils/ProfessorContext';
+import { CourseConsumer } from '../../utils/CourseContext';
 
 export default function FilterButton({ title, count, items }) {
 
@@ -12,11 +13,11 @@ export default function FilterButton({ title, count, items }) {
         if (title === 'professor') {
             Object.keys(items).map(item => {
                 const { name } = getProfById(item);
-                tempProfNames.push(name);
+                return tempProfNames.push(name);
             })
             setProfNames(tempProfNames);
         }
-    }, [])
+    }, [title, items, getProfById])
 
     return (
         <React.Fragment>
@@ -35,12 +36,16 @@ export default function FilterButton({ title, count, items }) {
                     Object.keys(items).map((item, index) => {
                         return (
                             <div className='filter-sub-item form-check' key={item}>
-                                <input type='checkbox' className='form-check-input' id={`${title}-${item}`} />
+                                <CourseConsumer>
+                                    {
+                                        value => <input type='checkbox' onChange={(e) => value.filterSearchResults(e)} className='form-check-input' id={`${title}-${item}`} />
+                                    }
+                                </CourseConsumer>
                                 {
                                     title === "professor" ? <label className='form-check-label' htmlFor={`${title}-${item}`}>{`${profNames[index]} (${items[item]})`}</label>
-                                    : <label className='form-check-label' htmlFor={`${title}-${item}`}>{`${item} (${items[item]})`}</label>
+                                        : <label className='form-check-label' htmlFor={`${title}-${item}`}>{`${item} (${items[item]})`}</label>
                                 }
-                                
+
                             </div>
                         )
                     })
