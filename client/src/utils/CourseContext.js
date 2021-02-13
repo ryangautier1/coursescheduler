@@ -136,17 +136,36 @@ function CourseProvider(props) {
 
     // Filter search results
     function filterSearchResults(e) {
-        console.log(e.currentTarget.id);
-        const filterItem = e.currentTarget.id;
-        const filterTitle = filterItem.split('-')[0];
-        const filterValue = filterItem.split('-')[1];
-        const tempResults = [...searchResults];
-        let newResults = [];
+        // Current element that was selected
+        const element = e.currentTarget;
+        // Get all filter options
+        const filters = document.querySelectorAll('.form-check-input');
+        const checked = []; // array for all filter options that are checked
+        // Loop through the filter options and push all checked into the checked array
+        filters.forEach(filter => {
+            if (filter.checked) {
+                checked.push(filter.id);
+            }
+        });
+        // Copy the results into a new array
+        // const tempResults = [...searchResults];
+        // let newResults = []; // Variable for new results
+        let tempResults = [...searchResults];
+        // Loop through the checked array and filter the results
+        checked.forEach(filter => {
+            console.log(filter)
+            const filterTitle = filter.split('-')[0];
+            const filterValue = filter.split('-')[1];
+            tempResults = tempResults.filter(course => course[filterTitle] == filterValue);
+        }); 
+        // const filterItem = element.id;
+        // const filterTitle = filterItem.split('-')[0];
+        // const filterValue = filterItem.split('-')[1];
+        
         // for (let i = 0; i < arr.length; i++) {
-        newResults = tempResults.filter(course => course[filterTitle] == filterValue);
+        // newResults = tempResults.filter(course => course[filterTitle] == filterValue);
         // }
-        console.log({newResults});
-        setFilteredResults(newResults);
+        setFilteredResults(tempResults);
     }
 
 
