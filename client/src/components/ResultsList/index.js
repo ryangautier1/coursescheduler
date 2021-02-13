@@ -26,9 +26,9 @@ export default function ResultsList() {
                         <CourseConsumer>
                             {
                                 value => {
-                                    const { searchResults } = value;
+                                    const { filteredResults } = value;
 
-                                    return searchResults.map(item => (
+                                    return filteredResults.map(item => (
                                         <ResultItem
                                             key={item._id}
                                             id={item._id}

@@ -25,6 +25,8 @@ function CourseProvider(props) {
     const localStorageResults = JSON.parse(localStorage.getItem('results'));
     // Search results
     const [searchResults, setSearchResults] = useState(localStorageResults || []);
+    // Filtered results
+    const [filteredResults, setFilteredResults] = useState([]);
 
     const localStorageFilterData = JSON.parse(localStorage.getItem('filterData'));
     // Filter data
@@ -80,6 +82,8 @@ function CourseProvider(props) {
         // console.log({filtered});
 
         setSearchResults(filtered);
+        // Set filteredResults to all
+        setFilteredResults(filtered);
         // Store filtered into local storage
         localStorage.setItem("results", JSON.stringify(filtered));
 
@@ -142,7 +146,7 @@ function CourseProvider(props) {
         newResults = tempResults.filter(course => course[filterTitle] == filterValue);
         // }
         console.log({newResults});
-        setSearchResults(newResults);
+        setFilteredResults(newResults);
     }
 
 
@@ -159,7 +163,8 @@ function CourseProvider(props) {
                 filterData,
                 selectCourseForView,
                 courseDetail,
-                filterSearchResults
+                filterSearchResults,
+                filteredResults
             }}
         >
             {props.children}
