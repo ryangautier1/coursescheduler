@@ -147,24 +147,15 @@ function CourseProvider(props) {
                 checked.push(filter.id);
             }
         });
-        // Copy the results into a new array
-        // const tempResults = [...searchResults];
-        // let newResults = []; // Variable for new results
+        // Copy the results into a temporary array
         let tempResults = [...searchResults];
-        // Loop through the checked array and filter the results
+        // Loop through the checked array of id's and filter the results
         checked.forEach(filter => {
-            console.log(filter)
-            const filterTitle = filter.split('-')[0];
-            const filterValue = filter.split('-')[1];
-            tempResults = tempResults.filter(course => course[filterTitle] == filterValue);
+            const filterTitle = filter.split('-')[0]; // title from the id
+            const filterValue = filter.split('-')[1]; // value from the id
+            tempResults = tempResults.filter(course => course[filterTitle] == filterValue); // filter using the title and value
         }); 
-        // const filterItem = element.id;
-        // const filterTitle = filterItem.split('-')[0];
-        // const filterValue = filterItem.split('-')[1];
-        
-        // for (let i = 0; i < arr.length; i++) {
-        // newResults = tempResults.filter(course => course[filterTitle] == filterValue);
-        // }
+        // Set the filtered results to the tempResults
         setFilteredResults(tempResults);
     }
 
