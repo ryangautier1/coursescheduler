@@ -16,7 +16,7 @@ export default function InstructorCoursesList({ label, courses }) {
                             <div className='col-md-4'>{course.title}</div>
                             <div className='col-md-4'>{course.term}</div>
                             <div className='col-md-2'>
-                                <Link to='/course-detail'>View Course</Link>
+                                <Link to={`/course-detail/${course._id}`}>View Course</Link>
                             </div>
                         </div>
                     ))
