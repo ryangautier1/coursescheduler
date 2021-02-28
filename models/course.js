@@ -28,8 +28,8 @@ const courseSchema = new Schema({
       required: true
     }
   ],
-  startTime: { type: Date, required: true },
-  endTime: { type: Date, required: true },
+  startTime: { type: String, required: true },
+  endTime: { type: String, required: true },
   duration: { type: Number, required: true },
   ratings: [
     { type: Number }
