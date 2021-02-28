@@ -25,6 +25,8 @@ function CourseProvider(props) {
     const localStorageResults = JSON.parse(localStorage.getItem('results'));
     // Search results
     const [searchResults, setSearchResults] = useState(localStorageResults || []);
+    // Filtered results
+    const [filteredResults, setFilteredResults] = useState([]);
 
     const localStorageFilterData = JSON.parse(localStorage.getItem('filterData'));
     // Filter data
@@ -80,6 +82,8 @@ function CourseProvider(props) {
         // console.log({filtered});
 
         setSearchResults(filtered);
+        // Set filteredResults to all
+        setFilteredResults(filtered);
         // Store filtered into local storage
         localStorage.setItem("results", JSON.stringify(filtered));
 
@@ -132,17 +136,27 @@ function CourseProvider(props) {
 
     // Filter search results
     function filterSearchResults(e) {
-        console.log(e.currentTarget.id);
-        const filterItem = e.currentTarget.id;
-        const filterTitle = filterItem.split('-')[0];
-        const filterValue = filterItem.split('-')[1];
-        const tempResults = [...searchResults];
-        let newResults = [];
-        // for (let i = 0; i < arr.length; i++) {
-        newResults = tempResults.filter(course => course[filterTitle] == filterValue);
-        // }
-        console.log({newResults});
-        setSearchResults(newResults);
+        // Current element that was selected
+        const element = e.currentTarget;
+        // Get all filter options
+        const filters = document.querySelectorAll('.form-check-input');
+        const checked = []; // array for all filter options that are checked
+        // Loop through the filter options and push all checked into the checked array
+        filters.forEach(filter => {
+            if (filter.checked) {
+                checked.push(filter.id);
+            }
+        });
+        // Copy the results into a temporary array
+        let tempResults = [...searchResults];
+        // Loop through the checked array of id's and filter the results
+        checked.forEach(filter => {
+            const filterTitle = filter.split('-')[0]; // title from the id
+            const filterValue = filter.split('-')[1]; // value from the id
+            tempResults = tempResults.filter(course => course[filterTitle] == filterValue); // filter using the title and value
+        }); 
+        // Set the filtered results to the tempResults
+        setFilteredResults(tempResults);
     }
 
 
@@ -159,7 +173,8 @@ function CourseProvider(props) {
                 filterData,
                 selectCourseForView,
                 courseDetail,
-                filterSearchResults
+                filterSearchResults,
+                filteredResults
             }}
         >
             {props.children}
