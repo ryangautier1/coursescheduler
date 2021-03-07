@@ -57,10 +57,10 @@ function Home() {
               }}
             </CourseConsumer>
           </select>
-          <Link to="/search-results">
+          <Link to={`/search-results/${selectRef.current ? selectRef.current.value.split(' ').join('+') : ''}`}>
             <button
               className="btn btn-primary ml-4 my-search-btn"
-              onClick={() => filterBySearch(selectRef.current.value)}
+              // onClick={() => filterBySearch(selectRef.current.value)}
             >
               SEARCH
             </button>
