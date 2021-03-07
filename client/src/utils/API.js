@@ -14,6 +14,9 @@ export default {
         let queryString = '?limit=' + limit + "&department=" + department
         return axios.get('/api/course' + queryString);
     },
+    findCourseByTitle: function (title) {
+        return axios.get('/search-results/' + title)
+    },
     fetchCourses: function () {
         return axios.get('/api/course');
     },
