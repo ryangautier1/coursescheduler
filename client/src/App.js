@@ -37,7 +37,7 @@ function App() {
               <Route path='/login'>
                 <Login />
               </Route>
-              <Route path='/search-results'>
+              <Route path='/search-results/:title'>
                 <SearchResults />
               </Route>
               <Route path='/course-detail/:id'>
