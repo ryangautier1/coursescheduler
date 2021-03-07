@@ -15,7 +15,7 @@ export default {
         return axios.get('/api/course' + queryString);
     },
     findCourseByTitle: function (title) {
-        return axios.get('/search-results/' + title)
+        return axios.get('/api/course/title/' + title)
     },
     fetchCourses: function () {
         return axios.get('/api/course');

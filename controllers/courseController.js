@@ -44,7 +44,7 @@ module.exports = {
   },
   findByTitle: function(req, res) {
     db.Course
-      .find({title: req.query.title})
+      .find({title: req.params.title})
       .then(dbModels => res.json(dbModels))
       .catch(err => res.status(422).json(err));
   },

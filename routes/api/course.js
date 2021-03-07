@@ -12,4 +12,9 @@ router
     .route("/:id")
     .get(courseController.findById);
 
+// Match with /api/course/:title
+router
+    .route("/title/:title")
+    .get(courseController.findByTitle);
+
 module.exports = router;

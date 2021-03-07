@@ -153,7 +153,7 @@ function CourseProvider(props) {
         checked.forEach(filter => {
             const filterTitle = filter.split('-')[0]; // title from the id
             const filterValue = filter.split('-')[1]; // value from the id
-            tempResults = tempResults.filter(course => course[filterTitle] == filterValue); // filter using the title and value
+            tempResults = tempResults.filter(course => course[filterTitle] === filterValue); // filter using the title and value
         }); 
         // Set the filtered results to the tempResults
         setFilteredResults(tempResults);
@@ -174,7 +174,9 @@ function CourseProvider(props) {
                 selectCourseForView,
                 courseDetail,
                 filterSearchResults,
-                filteredResults
+                filteredResults,
+                setSearchResults,
+                setFilteredResults
             }}
         >
             {props.children}
