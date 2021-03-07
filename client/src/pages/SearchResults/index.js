@@ -57,7 +57,7 @@ export default function SearchResults() {
                 setFilterData(tempFilterData);
             })
             .catch(err => console.log(err))
-    })
+    }, [])
 
     return (
         <div className='container-fluid search-results-container'>
